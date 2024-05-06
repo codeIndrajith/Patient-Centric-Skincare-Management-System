@@ -27,18 +27,18 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
+      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
-          <LinkContainer to='/'>
-            <Navbar.Brand>MERN Auth</Navbar.Brand>
+          <LinkContainer to="/">
+            <Navbar.Brand>Skin</Navbar.Brand>
           </LinkContainer>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='ms-auto'>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto">
               {userInfo ? (
                 <>
-                  <NavDropdown title={userInfo.name} id='username'>
-                    <LinkContainer to='/profile'>
+                  <NavDropdown title={userInfo.name} id="username">
+                    <LinkContainer to="/profile">
                       <NavDropdown.Item>Profile</NavDropdown.Item>
                     </LinkContainer>
                     <NavDropdown.Item onClick={logoutHandler}>
@@ -48,12 +48,12 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  <LinkContainer to='/login'>
+                  <LinkContainer to="/login">
                     <Nav.Link>
                       <FaSignInAlt /> Sign In
                     </Nav.Link>
                   </LinkContainer>
-                  <LinkContainer to='/register'>
+                  <LinkContainer to="/register">
                     <Nav.Link>
                       <FaSignOutAlt /> Sign Up
                     </Nav.Link>
