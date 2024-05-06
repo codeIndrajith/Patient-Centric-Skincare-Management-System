@@ -41,15 +41,18 @@ const Questionnaire = () => {
   const submitData = async (e) => {
     e.preventDefault();
 
-    if (
-      formData.gender === '' &&
-      formData.age === '' &&
-      formData.skinType === '' &&
-      formData.allergies === '' &&
-      formData.skinIssues === null &&
-      formData.isPregnantBreastfeeding === '' &&
-      formData.hasHistoryOfHeartAttacks === ''
-    ) {
+    const isFormIncomplete =
+      !formData.gender ||
+      !formData.age ||
+      !formData.skinType ||
+      !formData.allergies ||
+      formData.skinIssues.length === 0 ||
+      !formData.isPregnantBreastfeeding ||
+      !formData.hasHistoryOfHeartAttacks;
+
+    if (isFormIncomplete) {
+      toast.error('Add all fields');
+      return;
     }
 
     try {
