@@ -22,12 +22,12 @@ const questionnaireSchema = new mongoose.Schema({
     required: true,
   },
   isPregnantBreastfeeding: {
-    type: Boolean,
-    default: false,
+    type: String,
+    required: true,
   },
   hasHistoryOfHeartAttacks: {
-    type: Boolean,
-    default: false,
+    type: String,
+    required: true,
   },
 });
 

@@ -27,7 +27,7 @@ const questions = asyncHandler(async (req, res) => {
   if (questions) {
     res.json({
       _id: questions._id,
-      name: questions.age,
+      age: questions.age,
     });
   } else {
     res.status(401);
