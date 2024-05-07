@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Container, Card, Button, Form } from 'react-bootstrap';
+import { useState } from "react";
+import { Container, Card, Button, Form } from "react-bootstrap";
 
 const Hero = () => {
   return (

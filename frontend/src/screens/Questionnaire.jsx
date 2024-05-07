@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
-import { useSendQuestionsMutation } from '../slices/questionnairesApiSlice';
-import { setCredentials } from '../slices/questionsSlice';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import Loader from '../components/Loader';
-import { toast } from 'react-toastify';
+import { useState } from "react";
+import { Container, Form, Button } from "react-bootstrap";
+import { useSendQuestionsMutation } from "../slices/questionnairesApiSlice";
+import { setCredentials } from "../slices/questionsSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import Loader from "../components/Loader";
+import { toast } from "react-toastify";
 
 const Questionnaire = () => {
   const dispatch = useDispatch();
@@ -14,13 +14,13 @@ const Questionnaire = () => {
   const [questions, { isLoading }] = useSendQuestionsMutation();
 
   const initialFormData = {
-    gender: '',
-    age: '',
-    skinType: '',
-    allergies: '',
+    gender: "",
+    age: "",
+    skinType: "",
+    allergies: "",
     skinIssues: [],
-    isPregnantBreastfeeding: '',
-    hasHistoryOfHeartAttacks: '',
+    isPregnantBreastfeeding: "",
+    hasHistoryOfHeartAttacks: "",
   };
   const [formData, setFormData] = useState(initialFormData);
 
@@ -28,7 +28,7 @@ const Questionnaire = () => {
     const { name, value, type, checked } = e.target;
     let newValue;
 
-    if (type === 'checkbox') {
+    if (type === "checkbox") {
       newValue = checked
         ? [...formData.skinIssues, value]
         : formData.skinIssues.filter((issue) => issue !== value);
@@ -51,14 +51,14 @@ const Questionnaire = () => {
       !formData.hasHistoryOfHeartAttacks;
 
     if (isFormIncomplete) {
-      toast.error('Add all fields');
+      toast.error("Add all fields");
       return;
     }
 
     try {
       const res = await questions(formData).unwrap();
       dispatch(setCredentials(formData));
-      navigate('/predict');
+      navigate("/predict");
     } catch (err) {
       console.log(formData);
       toast.error(err?.data?.message || err.error);
@@ -141,7 +141,7 @@ const Questionnaire = () => {
               label="Acne"
               name="skinIssues"
               value="Acne"
-              checked={formData.skinIssues.includes('Acne')}
+              checked={formData.skinIssues.includes("Acne")}
               onChange={handleChange}
             />
             <Form.Check
@@ -150,7 +150,7 @@ const Questionnaire = () => {
               label="Pigmentation"
               name="skinIssues"
               value="Pigmentation"
-              checked={formData.skinIssues.includes('Pigmentation')}
+              checked={formData.skinIssues.includes("Pigmentation")}
               onChange={handleChange}
             />
             <Form.Check
@@ -159,7 +159,7 @@ const Questionnaire = () => {
               label="Wrinkles"
               name="skinIssues"
               value="Wrinkles"
-              checked={formData.skinIssues.includes('Wrinkles')}
+              checked={formData.skinIssues.includes("Wrinkles")}
               onChange={handleChange}
             />
 
@@ -169,7 +169,7 @@ const Questionnaire = () => {
               label="Fine Lines"
               name="skinIssues"
               value="Fine Lines"
-              checked={formData.skinIssues.includes('Fine Lines')}
+              checked={formData.skinIssues.includes("Fine Lines")}
               onChange={handleChange}
             />
             <Form.Check
@@ -178,7 +178,7 @@ const Questionnaire = () => {
               label="Sun Damage"
               name="skinIssues"
               value="Sun Damage"
-              checked={formData.skinIssues.includes('Sun Damage')}
+              checked={formData.skinIssues.includes("Sun Damage")}
               onChange={handleChange}
             />
             <Form.Check
@@ -187,7 +187,7 @@ const Questionnaire = () => {
               label="Stretch Marks"
               name="skinIssues"
               value="Stretch Marks"
-              checked={formData.skinIssues.includes('Stretch Marks')}
+              checked={formData.skinIssues.includes("Stretch Marks")}
               onChange={handleChange}
             />
           </div>
