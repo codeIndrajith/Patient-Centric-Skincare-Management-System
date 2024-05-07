@@ -1,0 +1,30 @@
+body {
+    background: rgb(44,159,7);
+background: linear-gradient(90deg, rgba(44,159,7,1) 5%, rgba(122,241,104,1) 45%, rgba(23,33,15,1) 98%);
+}
+
+.search {
+    width: 60%;
+}
+
+.welcomeDetails {
+   margin-top: 30px;
+}
+
+.welcomeDetails p {
+    font-size: 1.2rem;
+}
+
+.title h1 {
+    background: linear-gradient(135deg, rgb(10, 48, 170) 60%, rgb(243, 5, 5));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media(max-width: 991px) {
+    .search {
+        margin-top: 2%;
+        width: 100%;       
+    }
+}

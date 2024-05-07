@@ -1,5 +1,15 @@
-// import { Navbar, Nav, Container, NavDropdown, Badge } from 'react-bootstrap';
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import React, { useState } from 'react';
+import {
+  Navbar,
+  Nav,
+  Container,
+  NavDropdown,
+  Form,
+  FormControl,
+  Button,
+  Row,
+  Col,
+} from 'react-bootstrap';
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,6 +22,7 @@ const Header = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState('');
 
   const [logoutApiCall] = useLogoutMutation();
 
@@ -25,15 +36,57 @@ const Header = () => {
     }
   };
 
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+    // Implement search logic here
+  };
+
+  const searchResult = () => {
+    console.log(searchQuery);
+    setSearchQuery('');
+  };
+
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>Skin</Navbar.Brand>
+            <Navbar.Brand>
+              {' '}
+              <span style={{ color: 'white', fontWeight: '600' }}>
+                Skincare
+              </span>{' '}
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mx-auto search">
+              <Row className="align-items-center">
+                <Form inline>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px',
+                    }}
+                  >
+                    <FormControl
+                      type="text"
+                      placeholder="Search"
+                      className="mr-sm-2"
+                      value={searchQuery}
+                      onChange={handleSearch}
+                    ></FormControl>
+                    <Button
+                      className="bg-blue text-white"
+                      onClick={searchResult}
+                    >
+                      Search
+                    </Button>
+                  </div>
+                </Form>
+              </Row>
+            </Nav>
             <Nav className="ms-auto">
               {userInfo ? (
                 <>
@@ -50,12 +103,18 @@ const Header = () => {
                 <>
                   <LinkContainer to="/login">
                     <Nav.Link>
-                      <FaSignInAlt /> Sign In
+                      <FaSignInAlt />{' '}
+                      <span style={{ color: 'white', fontWeight: '700' }}>
+                        Sign In
+                      </span>
                     </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/register">
                     <Nav.Link>
-                      <FaSignOutAlt /> Sign Up
+                      <FaSignOutAlt />{' '}
+                      <span style={{ color: 'white', fontWeight: '700' }}>
+                        Sign Up
+                      </span>
                     </Nav.Link>
                   </LinkContainer>
                 </>
