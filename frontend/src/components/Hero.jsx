@@ -1,5 +1,4 @@
-import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import mainImage from "../images/mainImage.png";
 
