@@ -1,82 +1,71 @@
-import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import mainImage from "../images/mainImage.png";
-import { AiFillPlusCircle } from "react-icons/ai";
-import aiImage from "../images/ai.png";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import doctor from '../images/doctor.png';
+import behindImage from '../images/back.png';
+import '../css/Hero.css';
+import { AiFillCheckCircle } from 'react-icons/ai';
+import { BiPlusMedical } from 'react-icons/bi';
 
 const Hero = () => {
   const navigate = useNavigate();
   const handleConsultationClick = () => {
-    navigate("/login");
+    navigate('/login');
   };
 
   return (
-    <div className="py-5">
-      <Container className="d-flex justify-content-center align-items-center">
-        <Row>
-          <Col
-            md={6}
-            style={{
-              marginTop: "13%",
-            }}
-          >
-            <div>
-              <div className="title">
-                <h1>Find Your perfect Skincare</h1>
-              </div>
-              <div className="welcomeDetails">
-                <p>
-                  <AiFillPlusCircle /> Take our quiz to discover personalized
-                  skincare recommendations.
-                </p>
-                <p>
-                  {" "}
-                  <AiFillPlusCircle /> Skincare treatment recommendation
-                </p>
-                <p>
-                  {" "}
-                  <AiFillPlusCircle /> Dermatologist recommendation
-                </p>
-                <p>
-                  {" "}
-                  <AiFillPlusCircle /> You have to schedule appointments with
-                  dermatologists.
-                </p>
-                <p>
-                  {" "}
-                  <AiFillPlusCircle /> Find treatment details and recommended
-                  videos
-                </p>
-              </div>
-              <button
-                style={{
-                  marginTop: "15px",
-                  padding: "10px",
-                  width: "70%",
-                  border: "none",
-                  backgroundColor: "#286cc9",
-                  borderRadius: "30px",
-                  fontWeight: "600",
-                }}
-                onClick={handleConsultationClick}
-              >
-                Get Started
-              </button>
-            </div>
-          </Col>
+    <div className="containerSection">
+      <div className="heroBodySection">
+        <div className="details-section">
+          <div className="title">
+            <h1>
+              Find Your perfect <span>Skincare</span>
+            </h1>
+          </div>
+          <div className="welcomeDetails">
+            <p>
+              <AiFillCheckCircle className="correct-icon" /> Take our quiz to
+              discover personalized skincare recommendations.
+            </p>
+            <p>
+              {' '}
+              <AiFillCheckCircle className="correct-icon" /> Skincare treatment
+              recommendation
+            </p>
+            <p>
+              {' '}
+              <AiFillCheckCircle className="correct-icon" /> Dermatologist
+              recommendation
+            </p>
+            <p>
+              {' '}
+              <AiFillCheckCircle className="correct-icon" /> You have to
+              schedule appointments with dermatologists.
+            </p>
+            <p>
+              {' '}
+              <AiFillCheckCircle className="correct-icon" /> Find treatment
+              details and recommended videos
+            </p>
+          </div>
+          <div className="get-started">
+            <BiPlusMedical className="medical-icon" />
+            <button onClick={handleConsultationClick}>Get Started</button>
+          </div>
+        </div>
 
-          <Col md={6}>
-            <div>
-              <img
-                src={mainImage}
-                className="img-fluid"
-                alt="Responsive image"
-              />
-            </div>
-          </Col>
-        </Row>
-      </Container>
+        <div className="image-section">
+          <div>
+            <img src={doctor} className="doctorImage" alt="Responsive image" />
+          </div>
+          <div>
+            <img
+              src={behindImage}
+              className="behindImage"
+              alt="Responsive image"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

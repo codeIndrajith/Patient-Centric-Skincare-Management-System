@@ -1,31 +1,12 @@
 body {
-  background: rgb(180, 179, 99);
-  background: linear-gradient(
-    90deg,
-    #b8b650 5%,
-    rgb(184, 174, 86) 45%,
-    rgb(99, 87, 49) 98%
-  );
+  background-color: #ffffff;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .search {
   width: 60%;
 }
 
-.welcomeDetails {
-  margin-top: 30px;
-}
-
-.welcomeDetails p {
-  font-size: 1.2rem;
-}
-
-.title h1 {
-  background: linear-gradient(135deg, rgb(10, 48, 170) 60%, rgb(243, 5, 5));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 @media (max-width: 991px) {
   .search {

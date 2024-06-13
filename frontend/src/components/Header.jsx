@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Navbar,
   Nav,
@@ -9,21 +9,21 @@ import {
   Button,
   Row,
   Image,
-} from "react-bootstrap";
-import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
-import { LinkContainer } from "react-router-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { useLogoutMutation } from "../slices/usersApiSlice";
-import { logout } from "../slices/authSlice";
-import derma from "../assets/derma.png";
+} from 'react-bootstrap';
+import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
+import { LinkContainer } from 'react-router-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useLogoutMutation } from '../slices/usersApiSlice';
+import { logout } from '../slices/authSlice';
+import derma from '../assets/derma.png';
 
 const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
 
   const [logoutApiCall] = useLogoutMutation();
 
@@ -31,7 +31,7 @@ const Header = () => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
-      navigate("/login");
+      navigate('/login');
     } catch (err) {
       console.error(err);
     }
@@ -44,7 +44,7 @@ const Header = () => {
 
   const searchResult = () => {
     console.log(searchQuery);
-    setSearchQuery("");
+    setSearchQuery('');
   };
 
   return (
@@ -56,7 +56,7 @@ const Header = () => {
               <Image
                 src={derma}
                 alt="DermaDivine"
-                style={{ maxHeight: "100%", maxWidth: "60%" }}
+                style={{ maxHeight: '100%', maxWidth: '60%' }}
               />
             </Navbar.Brand>
           </LinkContainer>
@@ -67,9 +67,9 @@ const Header = () => {
                 <Form inline>
                   <div
                     style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "10px",
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px',
                     }}
                   >
                     <FormControl
@@ -105,16 +105,16 @@ const Header = () => {
                 <>
                   <LinkContainer to="/login">
                     <Nav.Link>
-                      <FaSignInAlt />{" "}
-                      <span style={{ color: "white", fontWeight: "700" }}>
+                      <FaSignInAlt />{' '}
+                      <span style={{ color: 'white', fontWeight: '700' }}>
                         Sign In
                       </span>
                     </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/register">
                     <Nav.Link>
-                      <FaSignOutAlt />{" "}
-                      <span style={{ color: "white", fontWeight: "700" }}>
+                      <FaSignOutAlt />{' '}
+                      <span style={{ color: 'white', fontWeight: '700' }}>
                         Sign Up
                       </span>
                     </Nav.Link>
