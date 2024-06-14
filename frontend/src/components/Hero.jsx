@@ -47,12 +47,24 @@ const Hero = () => {
               details and recommended videos
             </p>
           </div>
+          <div className="welcomeDetail-mobile">
+            <p>
+              Discover personalized skincare with our quiz, get treatment and
+              dermatologist recommendations, schedule appointments, and find
+              treatment details and videos.
+            </p>
+          </div>
           <div className="get-started">
             <BiPlusMedical className="medical-icon" />
             <button onClick={handleConsultationClick}>Get Started</button>
           </div>
         </div>
 
+        <div className="title-medium">
+          <h1>
+            Find Your perfect <span>Skincare</span>
+          </h1>
+        </div>
         <div className="image-section">
           <div>
             <img src={doctor} className="doctorImage" alt="Responsive image" />

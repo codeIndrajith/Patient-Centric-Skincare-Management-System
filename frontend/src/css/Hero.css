@@ -3,34 +3,43 @@
     height: 100vh;
 }
 
+.title-medium {
+    display: none;
+}
+
 .heroBodySection {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 50px 120px 0 120px;
+    padding: 50px 70px 0 70px;
     align-items: center;
+    gap: 20px
+}
+
+.details-section, .image-section {
+    flex: 1; /* Make both sections take equal space */
 }
 
 .details-section {
-    width: 60%;
+    width: 100%;
+    /* background-color: cadetblue; */
 }
 
 .image-section {
     position: relative;
-    max-width: 50%;
+    max-width: 60%;
     max-height: 80vh;
-    margin: auto;
-    /* background-color: red; */
     box-sizing: border-box;
     overflow: hidden;
+    /* background-color: darksalmon; */
 }
 
 .doctorImage {
     width: 110%; 
     position: absolute; 
+    object-fit: cover;
     top: 0;
-    left: 0;
-    width: 100%; 
+    left: 0; 
     height: auto; 
     z-index: 2; 
     box-sizing: border-box;
@@ -38,6 +47,7 @@
 
 .behindImage {
     position: relative; 
+    object-fit: cover;
   width: 130%;
   margin-left: -10%;
   margin-top: -14%;
@@ -49,13 +59,13 @@
 }
 
 .title h1 span {
-    font-size: 4.8rem;
+    font-size: 4rem;
     color: #007e85;
     font-weight: 700;
 }
 
 .title h1 {
-    font-size: 7rem;
+    font-size: 5rem;
     font-weight: 700;
 }
 
@@ -64,8 +74,12 @@
     margin: 6% 0 0 5%;
 }
 
+.welcomeDetail-mobile {
+    display: none;
+}
+
 .welcomeDetails p {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .correct-icon
@@ -81,21 +95,271 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 35%;
+    width: 50%;
     background-color: #007e85;
     cursor: pointer;
 }
 
 .get-started button {
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    padding: 10px 10%;
+    padding: 5px 13%;
     background-color: transparent;
     color: white;
+}
+
+.get-started:hover {
+    background-color: #055316;
+    transition: ease-in 0.18s;
 }
 
 .medical-icon {
     color: white;
     font-size: 1.7rem;
 }
+
+
+
+
+
+/********************* Responsive design section **********************/
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .heroBodySection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .title h1 span {
+        font-size: 0.7rem;
+        color: #007e85;
+        font-weight: 600;
+    }
+    
+    .title h1 {
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+
+    .image-section {
+        order: 1;
+        max-width: 100%;
+    }
+
+    .doctorImage {
+        width: 190%;
+        margin-left: -40%;
+    }
+
+    .behindImage {
+        width: 190%;
+        margin-left: -20%;
+    }
+
+    .welcomeDetails {
+        display: none;
+    }
+
+    .welcomeDetail-mobile {
+        display: block;
+    }
+
+    .welcomeDetail-mobile p {
+        font-size: 0.7rem;
+        color: gray;
+    }
+
+    .details-section {
+        order: 2;
+    }
+
+    .get-started {
+        width: 100%;
+        border-radius: 10px;
+        padding: 2px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .medical-icon {
+        font-size: 15px;
+    }
+
+    .get-started button {
+        font-size: 15px;
+    }
+    
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .heroBodySection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title {
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .title-medium {
+        display: none;
+        
+    }
+
+    .title h1 {
+        font-size: 2.5rem;
+    }
+
+    .title h1 span {
+        font-size: 1.5rem;
+    }
+
+    .image-section {
+        order: 1;
+        max-width: 150%;
+    }
+
+    .doctorImage {
+        width: 100%;
+        /* margin-left: -20%; */
+    }
+
+    .behindImage {
+        width: 100%;
+        margin-left: -4%;
+    }
+
+    .details-section {
+        order: 2;
+    }
+
+    .welcomeDetails {
+        display: none;
+    }
+
+    .welcomeDetail-mobile {
+        display: block;
+        padding: 10px 2%;
+        text-align: center;
+    }
+
+    .welcomeDetail-mobile p {
+        color: gray;
+    }
+
+    .get-started {
+        width: 100%;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .heroBodySection {
+        align-items: center;
+    }
+
+    .title {
+        display: block;
+    }
+    
+    .title h1 span {
+        font-size: 2.5rem;
+        color: #007e85;
+        font-weight: 700;
+    }
+    
+    .title h1 {
+        font-size: 4rem;
+        font-weight: 700;
+    }
+
+    .image-section {
+        max-width: 50%;
+    }
+
+    .doctorImage {
+        width: 160%;
+        margin-left: -20%;
+    }
+
+    .behindImage {
+        width: 160%;
+        margin-left: -20%;
+    }
+
+    .welcomeDetails p{
+        font-size: 0.9rem;
+    }
+
+    .correct-icon {
+        font-size: 1.5rem;
+    }
+
+    .get-started {
+        width: 70%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    
+    .details-section {
+        width: 50%;
+        padding: 10% 0;
+    }
+
+    .title {
+        text-align: center;
+        width: 100%;
+    }
+
+    .title h1{
+        font-size: 4.3rem;
+    }
+
+    .image-section {
+        width: 50%;
+        max-height: 60vh;
+    }
+
+    .doctorImage {
+        width: 120%;
+    }
+
+    .behindImage {
+        width: 150%;
+        margin-left: -60px;
+    }
+
+    .get-started {
+        width: 80%;
+        align-items: center;
+    }
+
+    .medical-icon {
+        font-size: 1.5rem;
+    }
+
+    .get-started button {
+        font-size: 1.2rem;
+    }
+}
+
