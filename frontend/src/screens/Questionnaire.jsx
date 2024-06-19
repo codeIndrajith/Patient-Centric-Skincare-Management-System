@@ -1,67 +1,98 @@
-import React, { useState } from "react";
-import { Container, Form, Button, Row, Col, Card } from "react-bootstrap";
-import { useSendQuestionsMutation } from "../slices/questionnairesApiSlice";
-import { setCredentials } from "../slices/questionsSlice";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import Loader from "../components/Loader";
-import { toast } from "react-toastify";
-import questionImage from "../images/question.png";
+import React, { useState } from 'react';
+import { Container, Form, Button, Row, Col, Card } from 'react-bootstrap';
+import { useSendQuestionsMutation } from '../slices/questionnairesApiSlice';
+import { setCredentials } from '../slices/questionsSlice';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import Loader from '../components/Loader';
+import { toast } from 'react-toastify';
+import questionImage from '../images/question.png';
 
 const Questionnaire = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [file, setFile] = useState(null);
+  const [gender, setGender] = useState('');
+  const [age, setAge] = useState('');
+  const [skinType, setSkinType] = useState('');
+  const [allergies, setAllergies] = useState('');
+  const [skinIssues, setSkinIssues] = useState([]);
+  const [isPregnantBreastfeeding, setIsPregnantBreastfeeding] = useState('');
+  const [hasHistoryOfHeartAttacks, setHasHistoryOfHeartAttacks] = useState('');
 
   const [questions, { isLoading }] = useSendQuestionsMutation();
 
-  const initialFormData = {
-    gender: "",
-    age: "",
-    skinType: "",
-    allergies: "",
-    skinIssues: [],
-    isPregnantBreastfeeding: "",
-    hasHistoryOfHeartAttacks: "",
-  };
-  const [formData, setFormData] = useState(initialFormData);
-
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    let newValue;
+    const { name, value, type, checked, files } = e.target;
 
-    if (type === "checkbox") {
-      newValue = checked
-        ? [...formData.skinIssues, value]
-        : formData.skinIssues.filter((issue) => issue !== value);
+    if (type === 'checkbox') {
+      setSkinIssues((prevIssues) =>
+        checked
+          ? [...prevIssues, value]
+          : prevIssues.filter((issue) => issue !== value)
+      );
+    } else if (type === 'file') {
+      setFile(files[0]);
     } else {
-      newValue = value;
+      switch (name) {
+        case 'gender':
+          setGender(value);
+          break;
+        case 'age':
+          setAge(value);
+          break;
+        case 'skinType':
+          setSkinType(value);
+          break;
+        case 'allergies':
+          setAllergies(value);
+          break;
+        case 'isPregnantBreastfeeding':
+          setIsPregnantBreastfeeding(value);
+          break;
+        case 'hasHistoryOfHeartAttacks':
+          setHasHistoryOfHeartAttacks(value);
+          break;
+        default:
+          break;
+      }
     }
-    setFormData({ ...formData, [name]: newValue });
   };
 
   const submitData = async (e) => {
     e.preventDefault();
 
-    const isFormIncomplete =
-      !formData.gender ||
-      !formData.age ||
-      !formData.skinType ||
-      !formData.allergies ||
-      formData.skinIssues.length === 0 ||
-      !formData.isPregnantBreastfeeding ||
-      !formData.hasHistoryOfHeartAttacks;
-
-    if (isFormIncomplete) {
-      toast.error("Add all fields");
+    if (
+      !gender ||
+      !age ||
+      !skinType ||
+      !allergies ||
+      skinIssues.length === 0 ||
+      !file ||
+      !isPregnantBreastfeeding ||
+      !hasHistoryOfHeartAttacks
+    ) {
+      toast.error('Add all fields');
       return;
     }
 
+    const formData = new FormData();
+    formData.append('gender', gender);
+    formData.append('age', age);
+    formData.append('skinType', skinType);
+    formData.append('allergies', allergies);
+    formData.append('skinIssues', JSON.stringify(skinIssues));
+    formData.append('skinImage', file);
+    formData.append('isPregnantBreastfeeding', isPregnantBreastfeeding);
+    formData.append('hasHistoryOfHeartAttacks', hasHistoryOfHeartAttacks);
+
+    console.log([...formData]);
+
     try {
       const res = await questions(formData).unwrap();
-      dispatch(setCredentials(formData));
-      navigate("/predict");
+      dispatch(setCredentials(res));
+      navigate('/predict');
     } catch (err) {
-      console.log(formData);
       toast.error(err?.data?.message || err.error);
     }
   };
@@ -71,11 +102,11 @@ const Questionnaire = () => {
       <Row className="justify-content-center mt-5">
         <div
           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            fontFamily: "sans-serif",
-            height: "90px",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontFamily: 'sans-serif',
+            height: '90px',
           }}
         >
           <h1>Hey, Help us with some quick questions</h1>
@@ -104,7 +135,7 @@ const Questionnaire = () => {
                     type="text"
                     placeholder="Gender"
                     name="gender"
-                    value={formData.gender}
+                    value={gender}
                     onChange={handleChange}
                   ></Form.Control>
                 </Form.Group>
@@ -115,7 +146,7 @@ const Questionnaire = () => {
                     type="number"
                     placeholder="Enter your age"
                     name="age"
-                    value={formData.age}
+                    value={age}
                     onChange={handleChange}
                   ></Form.Control>
                 </Form.Group>
@@ -128,7 +159,7 @@ const Questionnaire = () => {
                         as="select"
                         placeholder="What is your Skin Type"
                         name="skinType"
-                        value={formData.skinType}
+                        value={skinType}
                         onChange={handleChange}
                       >
                         <option value="">Select Skin Type</option>
@@ -146,7 +177,7 @@ const Questionnaire = () => {
                       <Form.Control
                         as="select"
                         name="allergies"
-                        value={formData.allergies}
+                        value={allergies}
                         onChange={handleChange}
                       >
                         <option value="">Select Skin Allergies</option>
@@ -181,7 +212,7 @@ const Questionnaire = () => {
                       label="Acne"
                       name="skinIssues"
                       value="Acne"
-                      checked={formData.skinIssues.includes("Acne")}
+                      checked={skinIssues.includes('Acne')}
                       onChange={handleChange}
                     />
                     <Form.Check
@@ -190,7 +221,7 @@ const Questionnaire = () => {
                       label="Pigmentation"
                       name="skinIssues"
                       value="Pigmentation"
-                      checked={formData.skinIssues.includes("Pigmentation")}
+                      checked={skinIssues.includes('Pigmentation')}
                       onChange={handleChange}
                     />
                     <Form.Check
@@ -199,7 +230,7 @@ const Questionnaire = () => {
                       label="Wrinkles"
                       name="skinIssues"
                       value="Wrinkles"
-                      checked={formData.skinIssues.includes("Wrinkles")}
+                      checked={skinIssues.includes('Wrinkles')}
                       onChange={handleChange}
                     />
 
@@ -209,7 +240,7 @@ const Questionnaire = () => {
                       label="Fine Lines"
                       name="skinIssues"
                       value="Fine Lines"
-                      checked={formData.skinIssues.includes("Fine Lines")}
+                      checked={skinIssues.includes('Fine Lines')}
                       onChange={handleChange}
                     />
                     <Form.Check
@@ -218,7 +249,7 @@ const Questionnaire = () => {
                       label="Sun Damage"
                       name="skinIssues"
                       value="Sun Damage"
-                      checked={formData.skinIssues.includes("Sun Damage")}
+                      checked={skinIssues.includes('Sun Damage')}
                       onChange={handleChange}
                     />
                     <Form.Check
@@ -227,11 +258,21 @@ const Questionnaire = () => {
                       label="Stretch Marks"
                       name="skinIssues"
                       value="Stretch Marks"
-                      checked={formData.skinIssues.includes("Stretch Marks")}
+                      checked={skinIssues.includes('Stretch Marks')}
                       onChange={handleChange}
                     />
                   </div>
                 </Form.Group>
+
+                <Row>
+                  <Form.Group>
+                    <Form.Label>Add Your Skin Issue Image</Form.Label>
+                    <Form.Control
+                      type="file"
+                      onChange={handleChange}
+                    ></Form.Control>
+                  </Form.Group>
+                </Row>
 
                 <Row>
                   <Col>
@@ -241,7 +282,7 @@ const Questionnaire = () => {
                         type="text"
                         placeholder="Yes or No"
                         name="isPregnantBreastfeeding"
-                        value={formData.isPregnantBreastfeeding}
+                        value={isPregnantBreastfeeding}
                         onChange={handleChange}
                       ></Form.Control>
                     </Form.Group>
@@ -255,7 +296,7 @@ const Questionnaire = () => {
                         type="text"
                         placeholder="Yes or No"
                         name="hasHistoryOfHeartAttacks"
-                        value={formData.hasHistoryOfHeartAttacks}
+                        value={hasHistoryOfHeartAttacks}
                         onChange={handleChange}
                       ></Form.Control>
                     </Form.Group>
@@ -265,13 +306,13 @@ const Questionnaire = () => {
                 <button
                   type="submit"
                   style={{
-                    marginTop: "15px",
-                    padding: "10px",
-                    width: "100%",
-                    border: "none",
-                    backgroundColor: "#3e8704",
-                    borderRadius: "30px",
-                    fontWeight: "600",
+                    marginTop: '15px',
+                    padding: '10px',
+                    width: '100%',
+                    border: 'none',
+                    backgroundColor: '#3e8704',
+                    borderRadius: '30px',
+                    fontWeight: '600',
                   }}
                 >
                   Send

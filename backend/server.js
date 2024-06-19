@@ -7,9 +7,11 @@ import cookieParser from 'cookie-parser';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import userRoutes from './routes/userRoutes.js';
 import questionRoutes from './routes/questionRoutes.js';
+import cloudinaryConfig from './config/cloudinary.js';
 
 const port = process.env.PORT || 5000;
 
+cloudinaryConfig();
 connectDB();
 
 const app = express();

@@ -21,6 +21,10 @@ const questionnaireSchema = new mongoose.Schema({
     type: [String],
     required: true,
   },
+  skinImage: {
+    type: String,
+    required: false,
+  },
   isPregnantBreastfeeding: {
     type: String,
     required: true,
