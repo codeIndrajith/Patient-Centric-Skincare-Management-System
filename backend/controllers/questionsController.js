@@ -33,7 +33,13 @@ const questions = asyncHandler(async (req, res) => {
   if (questions) {
     res.json({
       _id: questions._id,
-      skinImageUrl: questions.skinImage,
+      age: questions.age,
+      skinType: questions.skinType,
+      allergies: questions.allergies,
+      skinIssues: questions.skinIssues,
+      skinImage: questions.skinImage,
+      isPregnantBreastfeeding: questions.isPregnantBreastfeeding,
+      hasHistoryOfHeartAttacks: questions.hasHistoryOfHeartAttacks,
     });
   } else {
     res.status(401);

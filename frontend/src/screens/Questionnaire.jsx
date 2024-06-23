@@ -123,7 +123,13 @@ const Questionnaire = () => {
           </div>
         </Col>
         <Col xs={12} lg={6}>
-          <Card className="rounded">
+          <Card
+            className="rounded p-5"
+            style={{
+              width: '100%',
+              height: '100vh',
+            }}
+          >
             <Card.Body className>
               <Card.Title className="text-center bg-dark text-white p-3 rounded ">
                 SKIN QUIZE

@@ -1,0 +1,133 @@
+.predictContainer {
+    width: 70%; /* Set a width less than 100% to allow centering */
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bodySection {
+    width: 90%;
+    height: 90vh;
+    margin: 0 auto;
+}
+
+h4 {
+    text-align: center;
+}
+
+h4 strong {
+    font-size: 2rem;
+}
+
+.imageSkin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skinImage {
+    width: 60%;
+    max-height: auto;
+   margin-top: 2%;
+}
+
+.information {
+    margin-top: 2%;
+    width: 100%;
+    max-height: fit-content;
+    padding: 0 21%;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.predictButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.predictButton button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(139, 84, 21);
+    color: white;
+}
+
+
+
+/* ******************* Responsive Screen *************************** */
+
+@media only screen and (max-width: 600px) {
+    .skinImage {
+        width: 100%;
+        margin-left: auto;
+    }
+
+    .information {
+        padding: 0;
+    }
+
+    .details {
+        margin-right: 0;
+    }
+
+    .details h5,p{
+        font-size: 0.8rem;
+    }
+    
+    h4 strong {
+        font-size: 0.9rem;
+    }
+
+    .predictButton button {
+        width: 100%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .skinImage {
+        width: 80%;
+    }
+    .information {
+        padding: 0 10%;
+    }
+
+    .details h5,p{
+        font-size: 0.9rem;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .skinImage {
+        width: 80%;
+    }
+
+    .information {
+        padding: 0 15%;
+    }
+
+    .details h5,p{
+        font-size: 1rem;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .skinImage {
+        width: 80%;
+    }
+
+}
+
+
+
+
