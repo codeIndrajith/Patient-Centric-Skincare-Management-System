@@ -18,6 +18,7 @@ import ProfileScreen from './screens/ProfileScreen.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import Questionnaire from './screens/Questionnaire.jsx';
 import PredictScreen from './screens/PredictScreen.jsx';
+import TreatmentScreen from './screens/TreatmentScreen.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
         <Route path="/profile" element={<ProfileScreen />} />
         <Route path="/questionnaire" element={<Questionnaire />} />
         <Route path="/predict" element={<PredictScreen />} />
+        <Route path="/treatment" element={<TreatmentScreen />} />
       </Route>
     </Route>
   )
