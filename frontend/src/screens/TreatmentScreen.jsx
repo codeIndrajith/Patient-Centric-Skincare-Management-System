@@ -17,7 +17,9 @@ const TreatmentScreen = () => {
         <h2>Our Machine Learning Model Help You Find Your Treatment</h2>
       </div>
       <div className="recommendationContainer">
-        <h1>Hey! {userInfo.name}. This is your Recommendations</h1>
+        <h1>
+          Hey! <span>{userInfo.name}</span>. This is your Recommendations
+        </h1>
         <div className="recommendBox">
           <div className="boxes">
             <h3>Treatment Name</h3>
