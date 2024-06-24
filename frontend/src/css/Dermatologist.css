@@ -1,0 +1,217 @@
+.dermatologistContainer {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../images/bannerImg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.informationToggle {
+    display: none;
+}
+
+.closeBtn {
+    display: none;
+}
+
+.infoTreatment {
+    position: relative;
+    width: 50%;
+    min-height: 100vh;
+    background-color: #007e85;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoTreatment h1 {
+    font-size: 6rem;
+    text-align: center;
+}
+
+.infoTreatment p {
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 2% 7%;
+}
+
+.infoTreatment button {
+    border: none;
+    padding: 15px 30px;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+}
+
+
+/* ******************* Responsive Screen *************************** */
+
+@media only screen and (max-width: 600px) {
+    .dermatologistContainer {
+        background-position: 85%;
+    }
+
+    .infoTreatment {
+        display: none;
+    }
+
+    .hiddenInfo {
+        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hiddenBtn {
+        display: none;
+    }
+
+    .visibleClose {
+        margin-top: 60px;
+        margin-left: 80%;
+        position: absolute;
+        font-size: 3rem;
+        color: white;
+        display: block;
+        z-index: 10;
+    }
+
+    .informationToggle {
+        display: block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .informationToggle button {
+        padding: 2% 5%;
+        margin: 10px 20px;
+        border: none;
+        background-color: #007e85;
+        color: wheat;
+    }
+
+    .hiddenInfo h1 {
+        font-size: 3.5rem;
+        padding: 0 2%;
+    }
+
+    .hiddenInfo p {
+        font-size: 1.1rem;
+        text-align: justify;
+        padding: 0 10%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .dermatologistContainer {
+        background-position: 85%;
+    }
+
+    .infoTreatment {
+        display: none;
+    }
+
+    .hiddenInfo {
+        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hiddenBtn {
+        display: none;
+    }
+
+    .visibleClose {
+        margin-top: 60px;
+        margin-left: 80%;
+        position: absolute;
+        font-size: 3rem;
+        color: white;
+        display: block;
+        z-index: 10;
+    }
+
+    .informationToggle {
+        display: block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .informationToggle button {
+        padding: 2% 5%;
+        margin: 10px 20px;
+        border: none;
+        background-color: #007e85;
+        color: wheat;
+    }
+
+    .hiddenInfo h1 {
+        font-size: 3.5rem;
+        padding: 0 2%;
+    }
+
+    .hiddenInfo p {
+        font-size: 1.1rem;
+        text-align: justify;
+        padding: 0 10%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .dermatologistContainer {
+        background-position: 80% 50%;
+    }
+
+    .infoTreatment h1 {
+        font-size: 4rem;
+        padding: 0 2%;
+    }
+
+    .infoTreatment p {
+        font-size: 1.2rem;
+        text-align: justify;
+        padding: 0 10%;
+    }
+
+    .infoTreatment button {
+        margin-top: 10px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .dermatologistContainer {
+        background-position: 80% 50%;
+    }
+
+    .infoTreatment h1 {
+        font-size: 4rem;
+        padding: 0 2%;
+    }
+
+    .infoTreatment p {
+        font-size: 1.2rem;
+        text-align: justify;
+        padding: 0 10%;
+    }
+
+    .infoTreatment button {
+        margin-top: 10px;
+    }
+}
+
+
+
+
