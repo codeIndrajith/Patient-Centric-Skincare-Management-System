@@ -11,7 +11,7 @@ const PredictScreen = () => {
 
   // Prediction handle function
   const handlePrediction = () => {
-    navigate('/treatment');
+    navigate('/treatments');
   };
   return (
     <div className="predictContainer">

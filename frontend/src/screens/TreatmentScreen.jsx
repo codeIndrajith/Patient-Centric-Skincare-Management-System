@@ -9,7 +9,7 @@ const TreatmentScreen = () => {
 
   // handle to dermatologist function
   const handleDermatologist = () => {
-    navigate('/dermatologist');
+    navigate('/diseases');
   };
   return (
     <div className="treatmentContainer">
