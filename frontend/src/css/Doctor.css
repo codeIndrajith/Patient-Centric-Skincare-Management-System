@@ -1,16 +1,16 @@
 .doctorContainer {
    width: 100%;
    height: 100vh;
-   background-color: cadetblue;
    display: flex;
+   padding: 0 10%;
    flex-direction: column;
+   justify-content: center;
    align-items: center;
 }
 
 .doctorInfoSection {
     width: 100%;
     min-height: 80vh;
-    background-color: aquamarine;
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -18,20 +18,165 @@
 }
 
 .doctorInfo {
-    width: calc(100% - 50%);
-    min-height: 80vh;
-    background-color: azure;
+    width: calc(100% - 40%);
+    min-height: 100vh;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.doctorInfo > h5 {
+    font-size: 2.5rem;
+    max-width: 50%;
+    text-align: center;
+    color: rgb(9, 80, 138);
+    font-weight: 700;
+}
+
+.doctorInfo > p {
+    padding: 0 10%;
+    text-align: center;
+    color: rgb(92, 88, 88);
+}
+
+.caption {
+    width: 70%;
+}
+
+
+.contacts {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.socialIcon {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.doctorPersonalDetails {
+    margin-right: 40%;
+}
+
+.doctorPersonalDetails h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+}
+
+.doctorPersonalDetails strong {
+    color: gray;
+    font-size: small;
+}
+
+.appointments {
+    width: 100%;
+}
+
+.doctorCaption {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.appointmentForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.appointmentForm input, .appointmentForm select {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid rgb(223, 214, 191);
+    border-radius: 5px;
+}
+
+.appointmentForm button {
+    padding: 10px;
+    background-color: #3b915c;
+    color: white;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+
+/* Second Box style */
 
 .doctorService {
-    width: calc(100% - 50%);
-    min-height: 80vh;
-    background-color: rgb(37, 202, 4);
+    width: calc(100% - 60%);
+    min-height: 100vh;
+    margin-bottom: 40px;
+    overflow: hidden;
+    padding: 5% 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(208, 231, 222);
+    border-bottom-left-radius: 150px;
+    border-bottom-right-radius: 150px;
+}
+.doctorService > h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 2% 10%;
+    background-color: #06703b;
+    border-radius: 50px;
+    color: rgb(255, 255, 255);
+    font-size: 1.6rem;
 }
 
-.footerInfo {
-    width: 100%;
-    min-height: 20vh;
-    background-color: darkkhaki;
+.serviceIcon {
+    font-size: 2.6rem;
 }
 
+.doctorProfileImage {
+    max-width: 100%;
+    max-height: 50vh;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    overflow: hidden;
+}
+
+.doctorProfileImage img {
+    width: 75%;
+    border-bottom-right-radius: 260px;
+    border-bottom-left-radius: 280px;
+    border-bottom: 1px solid black;
+}
+
+.serviceList {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    padding: 0 10%;
+}
+
+.services {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 40px;
+}
+
+.servicesInfo > p {
+    color: gray;
+}
