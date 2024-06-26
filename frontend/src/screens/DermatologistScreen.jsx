@@ -10,6 +10,13 @@ import Modal from '../components/Modal';
 
 const DermatologistScreen = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    service: '',
+    date: '',
+  });
 
   // Model open
   const openModal = () => {
@@ -21,10 +28,19 @@ const DermatologistScreen = () => {
     setIsModalOpen(false);
   };
 
+  // get input data handle function
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
   // form submit function
   const submitHandler = (e) => {
     e.preventDefault();
-
+    console.log(formData);
     closeModal();
   };
   return (
@@ -56,27 +72,44 @@ const DermatologistScreen = () => {
                   type="text"
                   name="name"
                   placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
                   required
                 />
                 <input
                   type="email"
                   name="email"
                   placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
                   required
                 />
                 <input
                   type="tel"
-                  name="phone"
+                  name="phoneNumber"
                   placeholder="Your Phone Number"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
                   required
                 />
-                <select name="service" required>
+                <select
+                  name="service"
+                  required
+                  value={formData.service}
+                  onChange={handleChange}
+                >
                   <option value="">Select Service</option>
                   <option value="checkup">Medical Check Up</option>
                   <option value="emergency">Emergency</option>
                   <option value="pharmacy">Pharmacy</option>
                 </select>
-                <input type="date" name="date" required />
+                <input
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  required
+                />
                 <button type="submit">Book Appointment</button>
               </form>
             </Modal>

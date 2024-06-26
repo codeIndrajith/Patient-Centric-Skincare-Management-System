@@ -1,6 +1,7 @@
 import asyncHandler from 'express-async-handler';
 import User from '../models/userModel.js';
 import generateToken from '../utils/generateToken.js';
+import Appointments from '../models/appointmentsModel.js';
 
 // @desc    Auth user & get token
 // @route   POST /api/users/auth
@@ -112,10 +113,34 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     throw new Error('User not found');
   }
 });
+
+// @desc    Booking Appointments
+// @route   POST /api/users/appointments
+// @access  Private
+const appointments = asyncHandler(async (req, res) => {
+  const { id, name, email, phoneNumber, service, date } = req.body;
+
+  const appointment = await Appointments.create({
+    patientId: id,
+    patientName: name,
+    patientEmail: email,
+    patientPhoneNumber: phoneNumber,
+    service: service,
+    date: date,
+  });
+
+  if (appointment) {
+    res.status(200).json({ message: 'Appointments create successful' });
+  } else {
+    res.status(500);
+    throw new Error('Your Appointments reject');
+  }
+});
 export {
   authUser,
   registerUser,
   logoutUser,
   getUserProfile,
   updateUserProfile,
+  appointments,
 };
