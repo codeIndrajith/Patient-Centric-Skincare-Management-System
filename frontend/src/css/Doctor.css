@@ -93,24 +93,18 @@
     gap: 20px;
 }
 
-.doctorCaption {
-    font-size: 24px;
-    margin-bottom: 10px;
-    text-align: center;
-    font-size: 2.4rem;
-    font-weight: 700;
-}
 
 .appointmentForm {
     display: flex;
     flex-direction: column;
+    width: 60%;
 }
 
 .appointmentForm input, .appointmentForm select {
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid rgb(223, 214, 191);
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .appointmentForm button {
@@ -119,9 +113,9 @@
     color: white;
     font-size: 1.3rem;
     border: none;
-    border-radius: 10px;
+    border-radius: 30px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .bookApppointments {
@@ -200,6 +194,37 @@
     color: gray;
 }
 
+.appointmentModal {
+    display: flex;
+}
+
+.schedule {
+    width: 40%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.scheduleIcon {
+    font-size: 6rem;
+    color: #06703b;
+}
+
+.schedule > h1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #06703b;
+}
+
+.schedule > p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: gray;
+}
 
 /* ******************* Responsive Screen *************************** */
 
@@ -245,9 +270,7 @@
          order: 1;
      }
  
-     .doctorCaption {
-         font-size: 2.1rem;
-     }
+     
 
      .doctorProfileImage {
         display: flex;
@@ -298,6 +321,64 @@
      .serviceIcon {
         width: 15%;
      }
+
+     .scheduleIcon {
+        font-size: 4rem;
+        color: #06703b;
+    }
+    
+    .schedule > h1 {
+        text-align: center;
+        font-weight: 700;
+        font-size: 2rem;
+        color: #06703b;
+    }
+    
+    .schedule > p {
+        text-align: center;
+        font-size: 1rem;
+        color: gray;
+    }
+
+    .appointmentModal {
+        padding: 1px 10px;
+        flex-direction: column;
+     }
+
+     .appointmentForm input, .appointmentForm select {
+        font-size: 0.77rem;
+        margin-bottom: 5px;
+        padding: 7px;
+        border: 1px solid rgb(223, 214, 191);
+        border-radius: 20px;
+    }
+    
+    .appointmentForm button {
+        padding: 10px;
+        margin-top: 5px;
+        background-color: #3b915c;
+        color: white;
+        font-size: 1rem;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+     .appointmentForm {
+        width: 100%;
+        order: 2;
+     }
+    
+    .schedule {
+        width: 100%;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        order: 1;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -343,9 +424,7 @@
          order: 1;
      }
  
-     .doctorCaption {
-         font-size: 2.5rem;
-     }
+  
 
      .doctorProfileImage {
         display: flex;
@@ -392,6 +471,27 @@
      .serviceIcon {
         width: 10%;
      }
+
+     .appointmentModal {
+        padding: 1px 40px;
+        flex-direction: column;
+     }
+
+     .appointmentForm {
+        width: 100%;
+        order: 2;
+     }
+    
+    .schedule {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        order: 1;
+    }
+    
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -423,9 +523,7 @@
          width: calc(100% - 50%);
      }
  
-     .doctorCaption {
-         font-size: 2.1rem;
-     }
+   
  
      .bookApppointments {
         padding: 10px 20px;
@@ -489,9 +587,7 @@
         padding-top: 20%;
     }
 
-    .doctorCaption {
-        font-size: 2.1rem;
-    }
+ 
 
     .bookApppointments {
        padding: 10px 20px;

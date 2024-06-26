@@ -13,7 +13,7 @@ const DiseasesScreen = () => {
 
   // handle the Dermatologist function
   const handleDermatologist = () => {
-    navigate('/dermatologist');
+    navigate('/dermatologist/doctorId');
   };
   return (
     <div className="dermatologistContainer">

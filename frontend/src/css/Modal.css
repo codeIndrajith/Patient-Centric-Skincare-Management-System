@@ -13,10 +13,11 @@
   
   .modal-content {
     background-color: #fefefe;
-    padding: 20px;
+    border-radius: 30px;
+    padding: 30px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 500px;
+    max-width: 800px;
   }
   
   .close-button {
