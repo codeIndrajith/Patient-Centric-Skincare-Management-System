@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/Doctor.css';
 import { FaWhatsapp } from 'react-icons/fa';
 import { MdOutlineEmail } from 'react-icons/md';
@@ -6,11 +6,26 @@ import { FaBriefcaseMedical } from 'react-icons/fa';
 import { FaShuttleVan } from 'react-icons/fa';
 import { BsCapsule } from 'react-icons/bs';
 import profile from '../images/doctor.png';
+import Modal from '../components/Modal';
 
 const DermatologistScreen = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Model open
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // Model close
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   // form submit function
   const submitHandler = (e) => {
     e.preventDefault();
+
+    closeModal();
   };
   return (
     <div className="doctorContainer">
@@ -31,29 +46,40 @@ const DermatologistScreen = () => {
 
           <div className="appointments">
             <h2 className="doctorCaption">APPOINTMENTS</h2>
-            <form className="appointmentForm" onSubmit={submitHandler}>
-              <input type="text" name="name" placeholder="Your Name" required />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Your Phone Number"
-                required
-              />
-              <select name="service" required>
-                <option value="">Select Service</option>
-                <option value="checkup">Medical Check Up</option>
-                <option value="emergency">Emergency</option>
-                <option value="pharmacy">Pharmacy</option>
-              </select>
-              <input type="date" name="date" required />
-              <button type="submit">Book Appointment</button>
-            </form>
+            <button className="bookApppointments" onClick={openModal}>
+              Book Appointment
+            </button>
+
+            <Modal isOpen={isModalOpen} onClose={closeModal}>
+              <form className="appointmentForm" onSubmit={submitHandler}>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Your Phone Number"
+                  required
+                />
+                <select name="service" required>
+                  <option value="">Select Service</option>
+                  <option value="checkup">Medical Check Up</option>
+                  <option value="emergency">Emergency</option>
+                  <option value="pharmacy">Pharmacy</option>
+                </select>
+                <input type="date" name="date" required />
+                <button type="submit">Book Appointment</button>
+              </form>
+            </Modal>
           </div>
           <div className="contacts">
             <div className="social">
@@ -70,6 +96,10 @@ const DermatologistScreen = () => {
         <div className="doctorService">
           <div className="doctorProfileImage">
             <img src={profile} alt="" />
+            <div className="mobileShow">
+              <h1>Doctor Name</h1>
+              <strong>Doctor degree</strong>
+            </div>
           </div>
 
           <h2>SERVICES</h2>
