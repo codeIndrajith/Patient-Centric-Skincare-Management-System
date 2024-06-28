@@ -87,7 +87,7 @@
 
     .visibleClose {
         margin-top: 60px;
-        margin-left: 80%;
+        margin-left: 190%;
         position: absolute;
         font-size: 3rem;
         color: rgb(255, 255, 255);
@@ -95,6 +95,8 @@
     }
 
     .informationToggle {
+        width: 40%;
+        position: absolute;
         display: block;
         display: flex;
         justify-content: space-between;
@@ -102,7 +104,7 @@
     }
 
     .informationToggle button {
-        padding: 2% 5%;
+        padding: 5% 10%;
         margin: 10px 20px;
         border: none;
         background-color: #007e85;
@@ -143,7 +145,7 @@
 
     .visibleClose {
         margin-top: 60px;
-        margin-left: 80%;
+        margin-left: 290%;
         position: absolute;
         font-size: 3rem;
         color: white;
@@ -152,6 +154,8 @@
     }
 
     .informationToggle {
+        width: 30%;
+        position: absolute;
         display: block;
         display: flex;
         justify-content: space-between;
@@ -159,7 +163,7 @@
     }
 
     .informationToggle button {
-        padding: 2% 5%;
+        padding: 5% 10%;
         margin: 10px 20px;
         border: none;
         background-color: #007e85;
