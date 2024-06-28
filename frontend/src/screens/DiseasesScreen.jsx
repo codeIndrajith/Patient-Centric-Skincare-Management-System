@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import '../css/Dermatologist.css';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { MdOndemandVideo } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import bannerImg from '../images/bannerImg.jpg';
-import { lazy } from 'react';
+import treatment_1 from '../images/treatment_1.jpg';
+import treatment_2 from '../images/treatment_2.png';
+import treatment_3 from '../images/treatment_3.jpg';
+import treatmentVideo_1 from '../videos/video_1.mp4';
+import treatmentVideo_2 from '../videos/video_2.mp4';
+import { Carousel } from 'react-bootstrap';
 
 const DiseasesScreen = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -47,7 +52,41 @@ const DiseasesScreen = () => {
             Find your Dermatologist
           </button>
         </div>
-        <div className="informationDetails">hello</div>
+        <div className="informationDetails">
+          {/* Images to treatment  */}
+          <div className="carouselSection">
+            <div id="carouselExampleAutoplaying" className="carousel slide">
+              <h1 className="heading">OUR SERVICES</h1>
+              <Carousel>
+                <Carousel.Item>
+                  <img src={treatment_1} className="d-block" alt="image" />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img src={treatment_2} className="d-block" alt="image" />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img src={treatment_3} className="d-block" alt="image" />
+                </Carousel.Item>
+              </Carousel>
+            </div>
+          </div>
+          {/* Treatment video */}
+          <div className="treatment-videos">
+            <h3>Treatments</h3>
+            <div className="d-flex gap-3">
+              <div className="video-wrapper">
+                <a href={treatmentVideo_1}>
+                  <MdOndemandVideo />
+                </a>
+              </div>
+              <div className="video-wrapper">
+                <a href={treatmentVideo_2}>
+                  <MdOndemandVideo />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
