@@ -9,9 +9,11 @@ import treatment_3 from '../images/treatment_3.jpg';
 import treatmentVideo_1 from '../videos/video_1.mp4';
 import treatmentVideo_2 from '../videos/video_2.mp4';
 import { Carousel } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 const DiseasesScreen = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const { userInfo } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   // handle information function
   const handleInformation = () => {
@@ -88,6 +90,17 @@ const DiseasesScreen = () => {
           </div>
         </div>
       </div>
+
+      {/* <div className="reviewSection">
+              <form>
+                <textarea
+                  placeholder="Write your message"
+                  name="review"
+                  id="userReviews"
+                ></textarea>
+                <button type="submit">Review</button>
+              </form>
+            </div> */}
     </div>
   );
 };
