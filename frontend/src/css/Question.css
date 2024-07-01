@@ -1,0 +1,31 @@
+.background-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('../images/question.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+  }
+  
+  .card-custom {
+    background-color: rgba(126, 125, 125, 0.849); /* Semi-transparent white background */
+    box-shadow: 0 4px 8px rgb(0, 0, 0); /* Add a shadow for better visibility */
+  }
+  
+  .btn-custom {
+    background-color: #077516;
+    color: white;
+    font-weight: 600;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 10px;
+    transition-duration: 500ms;
+  }
+  
+  .btn-custom:hover {
+    background-color: #138b08; /* Darker shade for hover effect */
+  }
+  

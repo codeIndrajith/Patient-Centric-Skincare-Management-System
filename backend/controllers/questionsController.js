@@ -11,7 +11,6 @@ const questions = asyncHandler(async (req, res) => {
     age,
     skinType,
     allergies,
-    skinIssues,
     isPregnantBreastfeeding,
     hasHistoryOfHeartAttacks,
   } = req.body;
@@ -25,7 +24,6 @@ const questions = asyncHandler(async (req, res) => {
     age,
     skinType,
     allergies,
-    skinIssues,
     skinImage,
     isPregnantBreastfeeding,
     hasHistoryOfHeartAttacks,
@@ -36,7 +34,6 @@ const questions = asyncHandler(async (req, res) => {
       age: questions.age,
       skinType: questions.skinType,
       allergies: questions.allergies,
-      skinIssues: questions.skinIssues,
       skinImage: questions.skinImage,
       isPregnantBreastfeeding: questions.isPregnantBreastfeeding,
       hasHistoryOfHeartAttacks: questions.hasHistoryOfHeartAttacks,

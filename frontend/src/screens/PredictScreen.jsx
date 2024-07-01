@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 const PredictScreen = () => {
   const { userInfo } = useSelector((state) => state.auth);
   const { questionInfo } = useSelector((state) => state.question);
-  const skinIssuesArray = JSON.parse(questionInfo.skinIssues[0]);
   const navigate = useNavigate();
 
   // Prediction handle function
@@ -44,14 +43,6 @@ const PredictScreen = () => {
           <div className="details">
             <h5>Allergies</h5>
             <p>{questionInfo.allergies}</p>
-          </div>
-          <div className="details">
-            <h5>Skin Issues</h5>
-            <p>
-              {Array.isArray(skinIssuesArray)
-                ? skinIssuesArray.join(', ')
-                : 'No skin issues available'}
-            </p>
           </div>
           <div className="details">
             <h5>Pregnant Breast feeding</h5>

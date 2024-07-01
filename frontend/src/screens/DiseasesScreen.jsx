@@ -19,7 +19,6 @@ const DiseasesScreen = () => {
   const handleInformation = () => {
     setIsClicked(true);
   };
-
   // handle the Dermatologist function
   const handleDermatologist = () => {
     navigate('/dermatologist/doctorId');

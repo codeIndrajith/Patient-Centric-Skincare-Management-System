@@ -17,10 +17,6 @@ const questionnaireSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  skinIssues: {
-    type: [String],
-    required: true,
-  },
   skinImage: {
     type: String,
     required: false,

@@ -52,17 +52,18 @@ const Header = () => {
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
-        <Container>
+        <Container fluid style={{ padding: '0 5%' }}>
           <LinkContainer to="/">
             <Navbar.Brand>
               <Image
                 src={derma}
                 alt="DermaDivine"
-                style={{ maxHeight: '100%', maxWidth: '60%' }}
+                style={{ maxHeight: '100%', maxWidth: '40%' }}
               />
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto search">
               <Row className="align-items-center">
@@ -71,7 +72,7 @@ const Header = () => {
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '10px',
+                      gap: '5px',
                     }}
                   >
                     <FormControl
