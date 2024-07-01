@@ -3,9 +3,24 @@
     height: 100vh;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.issue {
+    color: rgb(100, 9, 9);
+    background-color: rgb(219, 219, 219);
+    padding: 3px 16px;
+    border-radius: 15px;
+    margin: 0 18%;
+}
+
+.issue > p {
+    font-size: 1.4rem;
+}
+
+.issue > h5 {
+    font-size: 1.8rem;
 }
 
 .bodySection {
@@ -30,7 +45,7 @@ h4 strong {
 
 .skinImage {
     width: 60%;
-    max-height: auto;
+    max-height: 55vh;
    margin-top: 2%;
 }
 

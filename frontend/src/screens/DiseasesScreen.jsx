@@ -21,7 +21,7 @@ const DiseasesScreen = () => {
   };
   // handle the Dermatologist function
   const handleDermatologist = () => {
-    navigate('/dermatologist/doctorId');
+    navigate('/all-dermatologists');
   };
   return (
     <div className="dermatologistContainer">
@@ -50,7 +50,7 @@ const DiseasesScreen = () => {
             eos. Debitis, soluta.
           </p>
           <button onClick={handleDermatologist} type="button">
-            Find your Dermatologist
+            Find Dermatologists
           </button>
         </div>
         <div className="informationDetails">

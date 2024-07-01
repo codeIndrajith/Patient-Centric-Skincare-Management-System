@@ -17,7 +17,7 @@ const PredictScreen = () => {
       <div className="bodySection">
         <div>
           <h4>
-            Hey <strong>{userInfo.name}</strong>! Do you want to check you skin
+            Hey <strong>{userInfo.name}</strong>! check out your issue
           </h4>
         </div>
         <div className="imageSkin">
@@ -32,6 +32,10 @@ const PredictScreen = () => {
           )}
         </div>
         <div className="information">
+          <div className="details issue">
+            <h5>Issue</h5>
+            <p>Skin Issue</p>
+          </div>
           <div className="details">
             <h5>Age</h5>
             <p>{questionInfo.age}</p>

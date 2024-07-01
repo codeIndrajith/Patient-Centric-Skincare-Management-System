@@ -21,6 +21,7 @@ import PredictScreen from './screens/PredictScreen.jsx';
 import TreatmentScreen from './screens/TreatmentScreen.jsx';
 import DermatologistScreen from './screens/DermatologistScreen.jsx';
 import DiseasesScreen from './screens/DiseasesScreen.jsx';
+import AllDermatologistsScreen from './screens/AllDermatologistsScreen.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,6 +35,10 @@ const router = createBrowserRouter(
         <Route path="/predict" element={<PredictScreen />} />
         <Route path="/treatments" element={<TreatmentScreen />} />
         <Route path="/diseases" element={<DiseasesScreen />} />
+        <Route
+          path="/all-dermatologists"
+          element={<AllDermatologistsScreen />}
+        />
         <Route
           path="/dermatologist/doctorId"
           element={<DermatologistScreen />}

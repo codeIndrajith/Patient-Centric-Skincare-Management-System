@@ -85,7 +85,12 @@
     width: 30%;
     padding: 2%;
     min-height: 30vh;
-    background-color: rgb(4, 117, 47);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10x);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,7 +98,8 @@
 }
 
 .boxes h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    font-weight: 700;
 }
 
 .boxes p {
@@ -102,14 +108,17 @@
 }
 
 .boxes strong {
-    background-color: red;
+    background-color: #007e85;
     padding: 10px 30px;
+    border-radius: 20px;
     color: white;
+    font-weight: 300;
     cursor: pointer;
+    transition-duration: 500ms;
 }
 
 .boxes strong:hover {
-    background-color: blue;
+    background-color:#02969e;
     transition: 0.5s ease;
 }
 
@@ -130,12 +139,17 @@
     }
 
     .boxes h3 {
-        font-size: 2.3rem;
+        font-size: 2rem;
         text-align: center;
     }
 
     .boxes p {
-        font-size: 1.1rem;
+        font-size: 0.8rem;
+    }
+
+    .boxes strong {
+        font-size: 0.8rem;
+        padding: 8px 20px;
     }
 }
 
