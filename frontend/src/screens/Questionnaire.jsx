@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Loader from '../components/Loader';
 import { toast } from 'react-hot-toast';
 import '../css/Question.css';
+import quizDoc from '../images/quizDoc.png';
 
 const Questionnaire = () => {
   const dispatch = useDispatch();
@@ -89,28 +90,26 @@ const Questionnaire = () => {
   };
 
   return (
-    <Container className="background-image">
-      <Row className="justify-content-center mt-5">
-        <Col xs={10} lg={4}>
+    <Container fluid className="background-image">
+      <Row className="justify-content-center twoSection">
+        <Col xs={10} lg={6} className="formSection">
           <Card
             className="rounded p-2 card-custom"
             style={{
+              backgroundColor: 'transparent',
               width: '100%',
-              maxHeight: '90vh',
               border: 'none',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
             }}
           >
-            <Card.Body>
-              <Card.Title className="text-center bg-success text-white p-3 rounded">
-                SKIN QUIZE
-              </Card.Title>
-              <Form className="px- py-2" onSubmit={submitData}>
+            <Card.Body className="cardBody">
+              <Card.Title className="questionTitle">Information</Card.Title>
+              <Form className="formBody" onSubmit={submitData}>
                 <Form.Group>
-                  <Form.Label>Gender</Form.Label>
                   <Form.Control
+                    className="inputFields"
                     type="text"
                     placeholder="Gender"
                     name="gender"
@@ -120,8 +119,8 @@ const Questionnaire = () => {
                 </Form.Group>
 
                 <Form.Group>
-                  <Form.Label>Age</Form.Label>
                   <Form.Control
+                    className="inputFields"
                     type="number"
                     placeholder="Enter your age"
                     name="age"
@@ -130,89 +129,82 @@ const Questionnaire = () => {
                   ></Form.Control>
                 </Form.Group>
 
-                <Row>
-                  <Form.Group>
-                    <Form.Label>Skin Type</Form.Label>
-                    <Form.Control
-                      as="select"
-                      placeholder="What is your Skin Type"
-                      name="skinType"
-                      value={skinType}
-                      onChange={handleChange}
-                    >
-                      <option value="">Select Skin Type</option>
-                      <option value="Dry">Dry</option>
-                      <option value="Oily">Oily</option>
-                      <option value="Combination">Combination</option>
-                      <option value="Sensitive">Sensitive</option>
-                    </Form.Control>
-                  </Form.Group>
+                <Form.Group>
+                  <Form.Control
+                    className="inputFields"
+                    as="select"
+                    placeholder="What is your Skin Type"
+                    name="skinType"
+                    value={skinType}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select Skin Type</option>
+                    <option value="Dry">Dry</option>
+                    <option value="Oily">Oily</option>
+                    <option value="Combination">Combination</option>
+                    <option value="Sensitive">Sensitive</option>
+                  </Form.Control>
+                </Form.Group>
 
-                  <Form.Group>
-                    <Form.Label>Skin Allergies</Form.Label>
-                    <Form.Control
-                      as="select"
-                      name="allergies"
-                      value={allergies}
-                      onChange={handleChange}
-                    >
-                      <option value="">Select Skin Allergies</option>
-                      <option value="None">None</option>
-                      <option value="Eczema">Eczema</option>
-                      <option value="Rosacea">Rosacea</option>
-                      <option value="Psoriasis">Psoriasis</option>
-                      <option value="Angioedema">Angioedema</option>
-                      <option value="Lupus">Lupus</option>
-                      <option value="Shingles">Shingles</option>
-                      <option value="Seborrheic-dermatitis">
-                        Seborrheic dermatitis
-                      </option>
-                      <option value="Hives">Hives</option>
-                      <option value="Scabies">Scabies</option>
-                      <option value="Allergen">Allergen</option>
-                      <option value="Contact-dermatitis">
-                        Contact dermatitis
-                      </option>
-                      <option value="Rashes">Rashes</option>
-                    </Form.Control>
-                  </Form.Group>
-                </Row>
+                <Form.Group>
+                  <Form.Control
+                    className="inputFields"
+                    as="select"
+                    name="allergies"
+                    value={allergies}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select Skin Allergies</option>
+                    <option value="None">None</option>
+                    <option value="Eczema">Eczema</option>
+                    <option value="Rosacea">Rosacea</option>
+                    <option value="Psoriasis">Psoriasis</option>
+                    <option value="Angioedema">Angioedema</option>
+                    <option value="Lupus">Lupus</option>
+                    <option value="Shingles">Shingles</option>
+                    <option value="Seborrheic-dermatitis">
+                      Seborrheic dermatitis
+                    </option>
+                    <option value="Hives">Hives</option>
+                    <option value="Scabies">Scabies</option>
+                    <option value="Allergen">Allergen</option>
+                    <option value="Contact-dermatitis">
+                      Contact dermatitis
+                    </option>
+                    <option value="Rashes">Rashes</option>
+                  </Form.Control>
+                </Form.Group>
 
-                <Row>
-                  <Form.Group>
-                    <Form.Label>Add Your Skin Issue Image</Form.Label>
-                    <Form.Control
-                      type="file"
-                      onChange={handleChange}
-                    ></Form.Control>
-                  </Form.Group>
-                </Row>
+                <Form.Group>
+                  <Form.Label>Add Your Skin Issue Image</Form.Label>
+                  <Form.Control
+                    className="inputFields"
+                    type="file"
+                    onChange={handleChange}
+                  ></Form.Control>
+                </Form.Group>
 
-                <Row>
-                  <Form.Group>
-                    <Form.Label>Are u pregnat or breastfeeding?</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Yes or No"
-                      name="isPregnantBreastfeeding"
-                      value={isPregnantBreastfeeding}
-                      onChange={handleChange}
-                    ></Form.Control>
-                  </Form.Group>
+                <Form.Group>
+                  <Form.Control
+                    className="inputFields"
+                    type="text"
+                    placeholder="Pregnat or breastfeeding? (Yes or No)"
+                    name="isPregnantBreastfeeding"
+                    value={isPregnantBreastfeeding}
+                    onChange={handleChange}
+                  ></Form.Control>
+                </Form.Group>
 
-                  <Form.Group>
-                    <Form.Label>
-                      Is there a history of heart attacks?
-                    </Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Yes or No"
-                      name="hasHistoryOfHeartAttacks"
-                      value={hasHistoryOfHeartAttacks}
-                      onChange={handleChange}
-                    ></Form.Control>
-                  </Form.Group>
-                </Row>
+                <Form.Group>
+                  <Form.Control
+                    className="inputFields"
+                    type="text"
+                    placeholder="Heart attacks? (Yes or No)"
+                    name="hasHistoryOfHeartAttacks"
+                    value={hasHistoryOfHeartAttacks}
+                    onChange={handleChange}
+                  ></Form.Control>
+                </Form.Group>
 
                 <button
                   type="submit"
@@ -229,6 +221,17 @@ const Questionnaire = () => {
               </Form>
             </Card.Body>
           </Card>
+        </Col>
+        <Col className="imageSectionDoc">
+          <div className="doctorPng">
+            <div className="titleUpImage">
+              <p>
+                Find Treatment and Dermatologist for your Skin Issue in one
+                place
+              </p>
+            </div>
+            <img src={quizDoc} alt="doctor" />
+          </div>
         </Col>
       </Row>
     </Container>

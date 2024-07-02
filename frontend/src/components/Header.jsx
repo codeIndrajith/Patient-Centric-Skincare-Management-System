@@ -65,33 +65,6 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mx-auto search">
-              <Row className="align-items-center">
-                <Form inline>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '5px',
-                    }}
-                  >
-                    <FormControl
-                      type="text"
-                      placeholder="Search"
-                      className="mr-sm-2"
-                      value={searchQuery}
-                      onChange={handleSearch}
-                    ></FormControl>
-                    <Button
-                      className="bg-blue text-white"
-                      onClick={searchResult}
-                    >
-                      Search
-                    </Button>
-                  </div>
-                </Form>
-              </Row>
-            </Nav>
             <Nav className="ms-auto">
               {userInfo ? (
                 <>
