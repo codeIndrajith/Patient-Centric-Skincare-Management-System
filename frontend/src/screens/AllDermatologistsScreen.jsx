@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/AllDoctors.css';
 import { Link } from 'react-router-dom';
+import { IoIosSearch } from 'react-icons/io';
 
 const AllDermatologistsScreen = () => {
   // search dermatologist function
@@ -11,7 +12,7 @@ const AllDermatologistsScreen = () => {
     <div>
       <div className="doctorsMainSection">
         <form onSubmit={searchDermatologists} className="searchForm">
-          <button type="submit">search</button>
+          <IoIosSearch className="searchIcon" />
           <input placeholder="Search Dermatologist" type="text" />
         </form>
       </div>

@@ -31,14 +31,15 @@
 
 .imageContainer h2 {
     position: absolute;
-    width: 30%;
+    width: 40%;
     height: 20vh;
     font-size: 4rem;
+    font-weight: 700;
     display: flex;
     justify-content: start;
     align-items: center;
     margin: 15% 3%;
-    color: white;
+    color: rgb(56, 54, 54);
 }
 
 .bannerSection {
@@ -125,6 +126,9 @@
 /* ******************* Responsive Screen *************************** */
 
 @media only screen and (max-width: 600px) {
+    .imageContainer {
+        background-position: right;
+    }
     .imageContainer h2{
         display: none;
     }
@@ -155,6 +159,9 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) and (max-width: 767px) {
+    .imageContainer {
+        background-position: right;
+    }
     .imageContainer h2{
         width: 100%;
         margin-top: 630px;
@@ -185,6 +192,9 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 992px) {
+    .imageContainer {
+        background-position: right;
+    }
     .imageContainer h2{
         width: 100%;
         margin-top: 630px;

@@ -14,7 +14,7 @@ const TreatmentScreen = () => {
   return (
     <div className="treatmentContainer">
       <div className="imageContainer">
-        <h2>Our Machine Learning Model Help You Find Your Treatment</h2>
+        <h2>Our Model Help You Find Your Treatment. Check it out</h2>
       </div>
       <div className="recommendationContainer">
         <h1>

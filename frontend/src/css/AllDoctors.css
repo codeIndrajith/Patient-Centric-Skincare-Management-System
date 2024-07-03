@@ -33,20 +33,17 @@
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
 }
 
-
-.searchForm > button {
-    width: 10%;
-    padding: 10px;
-    border: none;
-    border-radius: 15px;
-    margin-right: 5px;
+.searchIcon {
+    font-size: 2.7rem;
+    position: absolute;
+    padding-right: 10px;
+    cursor: pointer;
     transition-duration: 500ms;
 }
 
-.searchForm > button:hover {
-    background-color: rgb(1, 133, 82);
-    color: white;
-} 
+.searchIcon:hover {
+    color: rgb(3, 145, 86);
+}
 
 .allDoctors {
     width: 100%;
