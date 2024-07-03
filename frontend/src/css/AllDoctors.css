@@ -70,23 +70,54 @@
 }
 
 .docTable {
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
 }
 
 .docTable > thead {
     display: flex;
+    border-bottom: 1px solid black;
     justify-content: space-around;
 }
 
-td {
+td, th {
     font-size: 1.2rem;
 }
 
 .docTable > tbody {
+    margin-top: 10px;
+    height: 35vh;
+    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: scroll;
+}
+
+.docTable thead, .docTable tbody tr {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .docTable td {
+    padding: 6px 32px;
+    border-radius: 30px;
+  }
+
+.docTable > tbody tr {
     display: flex;
     justify-content: space-around;
+}
+
+.linkToDoctor {
+    text-decoration: none;
+    color: black;
+    transition-duration: 500ms;
+}
+
+.linkToDoctor:hover {
+    color: rgb(1, 156, 84);
 }
 
 /* ******************* Responsive Screen *************************** */

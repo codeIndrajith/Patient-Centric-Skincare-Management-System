@@ -7,7 +7,7 @@ import { FaBriefcaseMedical } from 'react-icons/fa';
 import { FaShuttleVan } from 'react-icons/fa';
 import { BsCapsule } from 'react-icons/bs';
 import { AiFillSchedule } from 'react-icons/ai';
-import profile from '../images/doctor.png';
+import profile from '../images/docProfile1.jpg';
 import Modal from '../components/Modal';
 import { useAddAppointmentsMutation } from '../slices/usersApiSlice';
 import toast from 'react-hot-toast';
@@ -122,17 +122,6 @@ const DermatologistScreen = () => {
                     required
                   />
                   <label>
-                    <strong>Email</strong>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                  <label>
                     <strong>Phone Number</strong>
                   </label>
                   <input
@@ -194,7 +183,15 @@ const DermatologistScreen = () => {
         {/* Second Box section */}
         <div className="doctorService">
           <div className="doctorProfileImage">
-            <img src={profile} alt="" />
+            <div
+              className="profileImage"
+              style={{
+                backgroundImage: `url(${profile})`,
+                backgroundPosition: 'top left',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+              }}
+            ></div>
             <div className="mobileShow">
               <h1>Doctor Name</h1>
               <strong>Doctor degree</strong>

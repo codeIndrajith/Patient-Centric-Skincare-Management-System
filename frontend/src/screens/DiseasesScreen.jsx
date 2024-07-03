@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../css/Dermatologist.css';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { MdOndemandVideo } from 'react-icons/md';
+import { MdRateReview } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import treatment_1 from '../images/treatment_1.jpg';
 import treatment_2 from '../images/treatment_2.png';
@@ -10,6 +11,7 @@ import treatmentVideo_1 from '../videos/video_1.mp4';
 import treatmentVideo_2 from '../videos/video_2.mp4';
 import { Carousel } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import ReviewTreatment from '../components/ReviewTreatment';
 
 const DiseasesScreen = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -87,19 +89,11 @@ const DiseasesScreen = () => {
               </div>
             </div>
           </div>
+          <div className="reviewTable">
+            <ReviewTreatment treatmentId={1} />
+          </div>
         </div>
       </div>
-
-      {/* <div className="reviewSection">
-              <form>
-                <textarea
-                  placeholder="Write your message"
-                  name="review"
-                  id="userReviews"
-                ></textarea>
-                <button type="submit">Review</button>
-              </form>
-            </div> */}
     </div>
   );
 };

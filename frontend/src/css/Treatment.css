@@ -57,8 +57,8 @@
 
 .recommendationContainer {
     width: 100%;
-    min-height: 70vh;
-    padding: 7% 10%;
+    height: 100vh;
+    padding: 10px 10%;
 }
 
 .recommendationContainer h1 {

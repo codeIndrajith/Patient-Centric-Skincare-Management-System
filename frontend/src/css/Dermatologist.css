@@ -113,11 +113,20 @@
     color:#007e85;
 }
 
+.reviewTable {
+    padding-left: 80%;
+}
+
+.reviewIcon {
+    cursor: pointer;
+    font-size: 2.3rem;
+}
 /* ******************* Responsive Screen *************************** */
 
 @media only screen and (max-width: 600px) {
     .informationDetails {
         width: 100%;
+        padding-top: 10%;
     }
     .infoTreatment {
         display: none;
@@ -267,23 +276,25 @@
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
 
     .infoTreatment h1 {
-        font-size: 4rem;
+        font-size: 3.2rem;
         padding: 0 2%;
     }
 
     .infoTreatment p {
-        font-size: 1.2rem;
+        font-size: 1rem;
         text-align: justify;
         padding: 0 10%;
     }
 
     .infoTreatment button {
         margin-top: 10px;
+        font-size: 1rem;
     }
 
     .informationDetails {
        max-height: 100vh;
     }
+
 }
 
 

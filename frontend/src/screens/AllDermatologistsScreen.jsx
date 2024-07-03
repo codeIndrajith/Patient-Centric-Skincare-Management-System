@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/AllDoctors.css';
+import { Link } from 'react-router-dom';
 
 const AllDermatologistsScreen = () => {
   // search dermatologist function
@@ -18,13 +19,69 @@ const AllDermatologistsScreen = () => {
         <div className="tableSection">
           <table className="docTable">
             <thead>
-              <td>Name</td>
-              <td>Time</td>
+              <th>Name</th>
+              <th>Channeling Time</th>
             </thead>
 
             <tbody>
-              <td>Dr. Michel Jonathan</td>
-              <td>3.00pm - 6.00pm</td>
+              <Link to="/dermatologist/doctorId" className="linkToDoctor">
+                <tr>
+                  <td>Dr. Michel Jonathan</td>
+                  <td>3.00pm - 6.00pm</td>
+                </tr>
+              </Link>
+              <tr>
+                <td>Dr. Michel Jonathan</td>
+                <td>3.00pm - 6.00pm</td>
+              </tr>
+              <tr>
+                <td>Dr. Michel Jonathan</td>
+                <td>3.00pm - 6.00pm</td>
+              </tr>
+              <tr>
+                <td>Dr. Michel Jonathan</td>
+                <td>3.00pm - 6.00pm</td>
+              </tr>
+              <tr>
+                <td>Dr. Michel Jonathan</td>
+                <td>3.00pm - 6.00pm</td>
+              </tr>
+              <tr>
+                <td>Dr. Michel Jonathan</td>
+                <td>3.00pm - 6.00pm</td>
+              </tr>
+              <tr>
+                <td>Dr. Michel Jonathan</td>
+                <td>3.00pm - 6.00pm</td>
+              </tr>
+              <tr>
+                <td>Dr. Michel Jonathan</td>
+                <td>3.00pm - 6.00pm</td>
+              </tr>
+              <tr>
+                <td>Dr. Michel Jonathan</td>
+                <td>3.00pm - 6.00pm</td>
+              </tr>
+              <tr>
+                <td>Dr. Michel Jonathan</td>
+                <td>3.00pm - 6.00pm</td>
+              </tr>
+              <tr>
+                <td>Dr. Michel Jonathan</td>
+                <td>3.00pm - 6.00pm</td>
+              </tr>
+              <tr>
+                <td>Dr. Michel Jonathan</td>
+                <td>3.00pm - 6.00pm</td>
+              </tr>
+              <tr>
+                <td>Dr. Michel Jonathan</td>
+                <td>3.00pm - 6.00pm</td>
+              </tr>
+              <tr>
+                <td>Dr. Michel Jonathan</td>
+                <td>3.00pm - 6.00pm</td>
+              </tr>
             </tbody>
           </table>
         </div>

@@ -2,7 +2,6 @@
    width: 100%;
    height: 100vh;
    display: flex;
-   padding: 28% 5%;
    flex-direction: column;
    justify-content: center;
    align-items: center;
@@ -10,7 +9,7 @@
 
 .doctorInfoSection {
     width: 100%;
-    min-height: 80vh;
+    height: 100vh;
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -26,6 +25,8 @@
     min-height: 100vh;
     padding: 50px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     gap: 30px;
     align-items: center;
@@ -135,25 +136,23 @@
 .doctorService {
     width: calc(100% - 60%);
     min-height: 100vh;
-    margin-bottom: 40px;
     overflow: hidden;
-    padding: 5% 2%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgb(208, 231, 222);
-    border-bottom-left-radius: 150px;
-    border-bottom-right-radius: 150px;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
 }
 .doctorService > h2 {
     margin-top: 20px;
     margin-bottom: 20px;
-    padding: 2% 10%;
+    padding: 2% 6%;
     background-color: #06703b;
     border-radius: 50px;
     color: rgb(255, 255, 255);
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 
 .serviceIcon {
@@ -161,25 +160,23 @@
 }
 
 .doctorProfileImage {
-    max-width: 100%;
-    max-height: 50vh;
+    width: 50%;
+    height: 30vh;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    gap: 40px;
     align-items: end;
     overflow: hidden;
 }
 
-.doctorProfileImage img {
-    width: 75%;
-    border-bottom-right-radius: 260px;
-    border-bottom-left-radius: 280px;
-    border-bottom: 1px solid black;
+.profileImage {
+   width: 100%;
+   height: 30vh;
 }
 
 .serviceList {
     display: flex;
     flex-direction: column;
-    margin-left: 40px;
     padding: 0 10%;
 }
 
@@ -240,10 +237,6 @@
     .doctorPersonalDetails {
         display: none;
     }
-
-    .doctorContainer {
-        padding: 0 5%;
-      }
      .doctorInfo {
          width: 100%;
          padding: 20px;
@@ -273,6 +266,8 @@
      
 
      .doctorProfileImage {
+        width: 100%;
+        height: 40vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -395,9 +390,6 @@
         display: none;
     }
 
-    .doctorContainer {
-        padding: 0 5%;
-      }
      .doctorInfo {
          width: 100%;
          padding: 20px;
@@ -427,6 +419,7 @@
   
 
      .doctorProfileImage {
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: start;
@@ -496,9 +489,6 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 992px) {
-    .doctorContainer {
-        padding: 0 5%;
-      }
      .doctorInfo {
          width: calc(100% - 50%);
          padding: 25px;
@@ -523,8 +513,6 @@
          width: calc(100% - 50%);
      }
  
-   
- 
      .bookApppointments {
         padding: 10px 20px;
         font-size: 1.2rem;
@@ -535,8 +523,8 @@
         padding: 2% 1%;
      }
 
-     .doctorProfileImage > img {
-        width: 90%;
+     .doctorProfileImage {
+        width: 80%;
      }
 
      .doctorService > h2 {
@@ -559,22 +547,20 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-    .doctorContainer {
-       padding: 38% 5%;
-     }
     .doctorInfo {
         width: calc(100% - 50%);
         padding: 25px;
-        padding-top: 20%;
+        padding-top: 4%;
     }
 
     .doctorInfo > h5 {
         max-width: 100%;
-        font-size: 2rem;
+        font-size: 1rem;
     }
 
     .doctorPersonalDetails > h1 {
-        font-size: 4rem;
+        font-size: 3rem;
+        max-width: 100%;
         font-weight: 700;
     } 
 
@@ -584,23 +570,41 @@
     }
     .doctorService {
         width: calc(100% - 50%);
-        padding-top: 20%;
+        padding-top: 5%;
     }
 
- 
+    .doctorProfileImage {
+        width: 80%;
+     }
 
     .bookApppointments {
        padding: 10px 20px;
        font-size: 1.2rem;
     }
 
+    .servicesInfo > h5 {
+        font-size: 1rem;
+    }
+
+    .servicesInfo > p {
+        font-size: 0.9rem;
+    }
+
+    .serviceIcon {
+        width: 30px
+    }
+
+    .doctorService > h2 {
+        font-size: 1rem;
+    }
+
+    .bookApppointments {
+        padding: 8px 20px;
+    }
+
 }
 
 @media only screen and (min-width: 1201px) and (max-width: 1550px) {
-    .doctorContainer {
-        padding: 31% 5%;
-    }
-
     .doctorInfo {
         padding-top: 15%;
     }
@@ -608,6 +612,10 @@
     .doctorService {
         padding-top: 10%;
     }
+
+    .doctorProfileImage {
+        width: 80%;
+     }
 }
 
 
