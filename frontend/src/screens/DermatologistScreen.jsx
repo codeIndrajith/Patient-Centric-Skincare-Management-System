@@ -13,6 +13,7 @@ import { useAddAppointmentsMutation } from '../slices/usersApiSlice';
 import toast from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import Loader from '../components/Loader';
+import ReviewDoctor from '../components/ReviewDoctor';
 
 const DermatologistScreen = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -221,6 +222,9 @@ const DermatologistScreen = () => {
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
               </div>
             </div>
+          </div>
+          <div>
+            <ReviewDoctor treatmentId={1} />
           </div>
         </div>
       </div>
