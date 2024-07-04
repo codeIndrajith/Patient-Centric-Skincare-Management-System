@@ -106,6 +106,12 @@ td, th {
     justify-content: space-around;
 }
 
+.theadTable > tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
 .linkToDoctor {
     text-decoration: none;
     color: black;

@@ -9,7 +9,7 @@ const appointmentsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  patientEmail: {
+  patientTime: {
     type: String,
     required: true,
   },

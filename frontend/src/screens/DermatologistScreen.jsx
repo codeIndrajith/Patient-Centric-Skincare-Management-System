@@ -26,8 +26,8 @@ const DermatologistScreen = () => {
 
   const initialFormData = {
     name: '',
-    email: '',
     phoneNumber: '',
+    time: '',
     service: '',
     date: '',
   };
@@ -69,7 +69,7 @@ const DermatologistScreen = () => {
       const res = await appointment({
         id: userInfo._id,
         name: formData.name,
-        email: formData.email,
+        time: formData.time,
         phoneNumber: formData.phoneNumber,
         service: formData.service,
         date: formData.date,
@@ -130,6 +130,17 @@ const DermatologistScreen = () => {
                     name="phoneNumber"
                     placeholder="Your Phone Number"
                     value={formData.phoneNumber}
+                    onChange={handleChange}
+                    required
+                  />
+                  <label>
+                    <strong>Time</strong>
+                  </label>
+                  <input
+                    type="time"
+                    name="time"
+                    placeholder="Time"
+                    value={formData.time}
                     onChange={handleChange}
                     required
                   />

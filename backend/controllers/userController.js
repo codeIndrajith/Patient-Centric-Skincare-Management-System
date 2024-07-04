@@ -118,12 +118,12 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 // @route   POST /api/users/appointments
 // @access  Private
 const appointments = asyncHandler(async (req, res) => {
-  const { id, name, email, phoneNumber, service, date } = req.body;
+  const { id, name, time, phoneNumber, service, date } = req.body;
 
   const appointment = await Appointments.create({
     patientId: id,
     patientName: name,
-    patientEmail: email,
+    patientTime: time,
     patientPhoneNumber: phoneNumber,
     service: service,
     date: date,

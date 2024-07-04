@@ -19,9 +19,11 @@ const AllDermatologistsScreen = () => {
       <div className="allDoctors">
         <div className="tableSection">
           <table className="docTable">
-            <thead>
-              <th>Name</th>
-              <th>Channeling Time</th>
+            <thead className="theadTable">
+              <tr>
+                <td>Name</td>
+                <td>Channeling Time</td>
+              </tr>
             </thead>
 
             <tbody>
