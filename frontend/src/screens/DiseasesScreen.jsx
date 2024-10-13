@@ -31,14 +31,13 @@ const DiseasesScreen = () => {
     return <p>Failed to fetch competition data. Please try again later.</p>;
   }
 
-  console.log(data.data);
   // handle information function
   const handleInformation = () => {
     setIsClicked(true);
   };
   // handle the Dermatologist function
   const handleDermatologist = () => {
-    navigate('/all-dermatologists');
+    navigate(`/all-dermatologists/${params.id}`);
   };
   return (
     <div className="dermatologistContainer">

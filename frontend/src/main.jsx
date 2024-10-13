@@ -36,13 +36,10 @@ const router = createBrowserRouter(
         <Route path="/treatments/:id" element={<TreatmentScreen />} />
         <Route path="/diseases/:id" element={<DiseasesScreen />} />
         <Route
-          path="/all-dermatologists"
+          path="/all-dermatologists/:id"
           element={<AllDermatologistsScreen />}
         />
-        <Route
-          path="/dermatologist/doctorId"
-          element={<DermatologistScreen />}
-        />
+        <Route path="/dermatologist/:id" element={<DermatologistScreen />} />
       </Route>
     </Route>
   )

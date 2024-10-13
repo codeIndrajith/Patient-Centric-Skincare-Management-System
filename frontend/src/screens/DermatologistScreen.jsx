@@ -14,6 +14,7 @@ import toast from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import Loader from '../components/Loader';
 import ReviewDoctor from '../components/ReviewDoctor';
+import { useGetOneDoctorQuery } from '../slices/doctorApiSlice';
 
 const DermatologistScreen = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -86,14 +87,28 @@ const DermatologistScreen = () => {
 
     closeModal();
   };
+
+  const params = useParams();
+  const {
+    data: doctorData,
+    isLoading,
+    error,
+  } = useGetOneDoctorQuery(params.id);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <p>Failed to fetch competition data. Please try again later.</p>;
+  }
   return (
     <div className="doctorContainer">
       <div className="doctorInfoSection">
         {/* First box section */}
         <div className="doctorInfo">
           <div className="doctorPersonalDetails">
-            <h1>Doctor Name</h1>
-            <strong>Doctor degree</strong>
+            <h1>{doctorData.data.name}</h1>
           </div>
           <h5>OUR HEALTH CLINIC</h5>
           <p>

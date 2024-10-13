@@ -1,21 +1,26 @@
 import React from 'react';
 import '../css/AllDoctors.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { IoIosSearch } from 'react-icons/io';
+import { useGetDoctorQuery } from '../slices/doctorApiSlice';
+import Loader from '../components/Loader';
 
 const AllDermatologistsScreen = () => {
-  // search dermatologist function
-  const searchDermatologists = (e) => {
-    e.preventDefault();
-  };
+  const params = useParams();
+  const { data: doctorData, isLoading, error } = useGetDoctorQuery(params.id);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <p>Failed to fetch competition data. Please try again later.</p>;
+  }
+  console.log(doctorData.data);
+
   return (
     <div>
-      <div className="doctorsMainSection">
-        <form onSubmit={searchDermatologists} className="searchForm">
-          <IoIosSearch className="searchIcon" />
-          <input placeholder="Search Dermatologist" type="text" />
-        </form>
-      </div>
+      <div className="doctorsMainSection"></div>
       <div className="allDoctors">
         <div className="tableSection">
           <table className="docTable">
@@ -27,64 +32,15 @@ const AllDermatologistsScreen = () => {
             </thead>
 
             <tbody>
-              <Link to="/dermatologist/doctorId" className="linkToDoctor">
+              <Link
+                to={`/dermatologist/${doctorData.data[0]._id}`}
+                className="linkToDoctor"
+              >
                 <tr>
-                  <td>Dr. Michel Jonathan</td>
-                  <td>3.00pm - 6.00pm</td>
+                  <td>{doctorData.data[0].name}</td>
+                  <td>{doctorData.data[0].channeling_time}</td>
                 </tr>
               </Link>
-              <tr>
-                <td>Dr. Michel Jonathan</td>
-                <td>3.00pm - 6.00pm</td>
-              </tr>
-              <tr>
-                <td>Dr. Michel Jonathan</td>
-                <td>3.00pm - 6.00pm</td>
-              </tr>
-              <tr>
-                <td>Dr. Michel Jonathan</td>
-                <td>3.00pm - 6.00pm</td>
-              </tr>
-              <tr>
-                <td>Dr. Michel Jonathan</td>
-                <td>3.00pm - 6.00pm</td>
-              </tr>
-              <tr>
-                <td>Dr. Michel Jonathan</td>
-                <td>3.00pm - 6.00pm</td>
-              </tr>
-              <tr>
-                <td>Dr. Michel Jonathan</td>
-                <td>3.00pm - 6.00pm</td>
-              </tr>
-              <tr>
-                <td>Dr. Michel Jonathan</td>
-                <td>3.00pm - 6.00pm</td>
-              </tr>
-              <tr>
-                <td>Dr. Michel Jonathan</td>
-                <td>3.00pm - 6.00pm</td>
-              </tr>
-              <tr>
-                <td>Dr. Michel Jonathan</td>
-                <td>3.00pm - 6.00pm</td>
-              </tr>
-              <tr>
-                <td>Dr. Michel Jonathan</td>
-                <td>3.00pm - 6.00pm</td>
-              </tr>
-              <tr>
-                <td>Dr. Michel Jonathan</td>
-                <td>3.00pm - 6.00pm</td>
-              </tr>
-              <tr>
-                <td>Dr. Michel Jonathan</td>
-                <td>3.00pm - 6.00pm</td>
-              </tr>
-              <tr>
-                <td>Dr. Michel Jonathan</td>
-                <td>3.00pm - 6.00pm</td>
-              </tr>
             </tbody>
           </table>
         </div>
