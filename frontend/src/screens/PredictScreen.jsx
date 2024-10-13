@@ -10,7 +10,7 @@ const PredictScreen = () => {
 
   // Prediction handle function
   const handlePrediction = () => {
-    navigate('/treatments');
+    navigate(`/treatments/${questionInfo._id}`);
   };
   return (
     <div className="predictContainer">
@@ -33,8 +33,8 @@ const PredictScreen = () => {
         </div>
         <div className="information">
           <div className="details issue">
-            <h5>Issue</h5>
-            <p>Skin Issue</p>
+            <h5>Disease</h5>
+            <p>{questionInfo.predictResult.disease}</p>
           </div>
           <div className="details">
             <h5>Age</h5>

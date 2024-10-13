@@ -29,6 +29,11 @@ const questionnaireSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  predictResult: {
+    accuracy: Number,
+    disease: String,
+    medicine: String,
+  },
 });
 
 const Questionnaire = mongoose.model('Question', questionnaireSchema);

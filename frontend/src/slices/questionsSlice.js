@@ -11,7 +11,6 @@ const questionsSlice = createSlice({
   initialState,
   reducers: {
     setCredentials: (state, action) => {
-      console.log(action.payload);
       state.questionInfo = action.payload;
       localStorage.setItem('questionInfo', JSON.stringify(action.payload));
     },

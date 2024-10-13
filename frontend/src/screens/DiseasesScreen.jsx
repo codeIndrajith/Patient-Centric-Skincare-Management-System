@@ -3,7 +3,7 @@ import '../css/Dermatologist.css';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { MdOndemandVideo } from 'react-icons/md';
 import { MdRateReview } from 'react-icons/md';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import treatment_1 from '../images/treatment_1.jpg';
 import treatment_2 from '../images/treatment_2.png';
 import treatment_3 from '../images/treatment_3.jpg';
@@ -12,11 +12,26 @@ import treatmentVideo_2 from '../videos/video_2.mp4';
 import { Carousel } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import ReviewTreatment from '../components/ReviewTreatment';
+import { useGetDataOneQuery } from '../slices/questionnairesApiSlice';
+import Loader from '../components/Loader';
 
 const DiseasesScreen = () => {
   const [isClicked, setIsClicked] = useState(false);
   const { userInfo } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+  const params = useParams();
+
+  const { data, isLoading, error } = useGetDataOneQuery(params.id);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <p>Failed to fetch competition data. Please try again later.</p>;
+  }
+
+  console.log(data.data);
   // handle information function
   const handleInformation = () => {
     setIsClicked(true);
@@ -44,13 +59,8 @@ const DiseasesScreen = () => {
 
       <div className="contentsInfo">
         <div className={`${isClicked && 'hiddenInfo'} infoTreatment`}>
-          <h1>Treatment Name</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-            corrupti qui ea optio velit, iste fugiat ex a minima, dolores,
-            necessitatibus sint harum. Distinctio, omnis! Ratione, excepturi
-            eos. Debitis, soluta.
-          </p>
+          <h1>{data.data.name}</h1>
+          <p>{data.data.description}</p>
           <button onClick={handleDermatologist} type="button">
             Find Dermatologists
           </button>

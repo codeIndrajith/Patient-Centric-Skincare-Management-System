@@ -9,10 +9,8 @@
 
 .issue {
     color: rgb(100, 9, 9);
-    background-color: rgb(219, 219, 219);
-    padding: 3px 16px;
     border-radius: 15px;
-    margin: 0 18%;
+    margin: 0 10%;
 }
 
 .issue > p {

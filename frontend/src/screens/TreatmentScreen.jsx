@@ -1,15 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/Treatment.css';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import Loader from '../components/Loader';
+import { useGetDataQuery } from '../slices/questionnairesApiSlice';
 
 const TreatmentScreen = () => {
   const { userInfo } = useSelector((state) => state.auth);
+  const { data, isLoading, error } = useGetDataQuery();
+  const [randomItems, setRandomItems] = useState([]);
   const navigate = useNavigate();
 
+  const getRandomItems = (items) => {
+    const shuffled = [...items].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 2);
+  };
+
+  useEffect(() => {
+    if (data && data.data) {
+      const selectedItems = getRandomItems(data.data);
+      setRandomItems(selectedItems);
+    }
+  }, [data]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <p>Failed to fetch competition data. Please try again later.</p>;
+  }
+
   // handle to dermatologist function
-  const handleDermatologist = () => {
-    navigate('/diseases');
+  const handleDermatologist = (id) => {
+    // console.log(id);
+    navigate(`/diseases/${id}`);
   };
   return (
     <div className="treatmentContainer">
@@ -21,21 +46,15 @@ const TreatmentScreen = () => {
           Hey! <span>{userInfo.name}</span>. This is your Recommendations
         </h1>
         <div className="recommendBox">
-          <div className="boxes">
-            <h3>Treatment Name</h3>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Voluptatibus rerum debitis quasi deserunt, architecto facilis aut
-              deleniti cumque similique id, cupiditate, autem quos corrupti
-              beatae maiores tenetur nam! Provident, facere.
-            </p>
-            <strong onClick={handleDermatologist}>See More</strong>
-          </div>
-          <div className="boxes">Second box</div>
-          <div className="boxes">Third Box</div>
-          <div className="boxes">Forth Box</div>
-          <div className="boxes">Fifth Box</div>
-          <div className="boxes">sixth Box</div>
+          {randomItems.map((item) => (
+            <div className="boxes" key={item._id}>
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              <strong onClick={() => handleDermatologist(item._id)}>
+                See More
+              </strong>
+            </div>
+          ))}
         </div>
       </div>
     </div>
