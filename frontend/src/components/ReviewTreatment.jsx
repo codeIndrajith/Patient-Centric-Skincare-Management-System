@@ -40,7 +40,7 @@ function ReviewTreatment({ treatmentId }) {
   return (
     <>
       <button className="btn-primary" onClick={handleShow}>
-        Review Treatment
+        Reviews
       </button>
 
       {show && (

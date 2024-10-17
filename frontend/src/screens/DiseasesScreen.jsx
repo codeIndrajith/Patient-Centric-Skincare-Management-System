@@ -58,7 +58,7 @@ const DiseasesScreen = () => {
 
       <div className="contentsInfo">
         <div className={`${isClicked && 'hiddenInfo'} infoTreatment`}>
-          <h1>{data.data.name}</h1>
+          <h2>{data.data.name}</h2>
           <p>{data.data.description}</p>
           <button onClick={handleDermatologist} type="button">
             Find Dermatologists
@@ -71,20 +71,31 @@ const DiseasesScreen = () => {
               <h1 className="heading">OUR SERVICES</h1>
               <Carousel>
                 <Carousel.Item>
-                  <img src={treatment_1} className="d-block" alt="image" />
+                  <img
+                    src={treatment_1}
+                    className="d-block carouselImage"
+                    alt="image"
+                  />
                 </Carousel.Item>
                 <Carousel.Item>
-                  <img src={treatment_2} className="d-block" alt="image" />
+                  <img
+                    src={treatment_2}
+                    className="d-block carouselImage"
+                    alt="image"
+                  />
                 </Carousel.Item>
                 <Carousel.Item>
-                  <img src={treatment_3} className="d-block" alt="image" />
+                  <img
+                    src={treatment_3}
+                    className="d-block carouselImage"
+                    alt="image"
+                  />
                 </Carousel.Item>
               </Carousel>
             </div>
           </div>
           {/* Treatment video */}
           <div className="treatment-videos">
-            <h3>Treatments</h3>
             <div className="d-flex gap-3">
               <div className="video-wrapper">
                 <a href={treatmentVideo_1}>

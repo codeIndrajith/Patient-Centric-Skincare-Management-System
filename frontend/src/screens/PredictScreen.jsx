@@ -15,11 +15,6 @@ const PredictScreen = () => {
   return (
     <div className="predictContainer">
       <div className="bodySection">
-        <div>
-          <h4>
-            Hey <strong>{userInfo.name}</strong>! check out your issue
-          </h4>
-        </div>
         <div className="imageSkin">
           {questionInfo.skinImage ? (
             <img

@@ -147,11 +147,11 @@
 }
 .doctorService > h2 {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     border-radius: 50px;
     color: rgb(0, 0, 0);
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 2.2rem;
 }
 
 .serviceIcon {

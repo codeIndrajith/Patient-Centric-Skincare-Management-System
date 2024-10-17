@@ -24,8 +24,19 @@ export const questionnaireApiSlice = apiSlice.injectEndpoints({
       }),
       keepUnusedDataFor: false,
     }),
+    getQuestion: builder.query({
+      query: (id) => ({
+        url: `${QUESTIONS_URL}/${id}`,
+        method: 'GET',
+      }),
+      keepUnusedDataFor: false,
+    }),
   }),
 });
 
-export const { useSendQuestionsMutation, useGetDataQuery, useGetDataOneQuery } =
-  questionnaireApiSlice;
+export const {
+  useSendQuestionsMutation,
+  useGetDataQuery,
+  useGetDataOneQuery,
+  useGetQuestionQuery,
+} = questionnaireApiSlice;

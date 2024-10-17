@@ -209,22 +209,6 @@ const DermatologistScreen = () => {
         </div>
         {/* Second Box section */}
         <div className="doctorService">
-          <div className="doctorProfileImage">
-            <div
-              className="profileImage"
-              style={{
-                backgroundImage: `url(${profile})`,
-                backgroundPosition: 'top left',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-              }}
-            ></div>
-            <div className="mobileShow">
-              <h1>Doctor Name</h1>
-              <strong>Doctor degree</strong>
-            </div>
-          </div>
-
           <h2>SERVICES</h2>
           <div className="serviceList">
             <div className="services">

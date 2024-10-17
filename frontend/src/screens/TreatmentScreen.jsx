@@ -3,37 +3,51 @@ import '../css/Treatment.css';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
-import { useGetDataQuery } from '../slices/questionnairesApiSlice';
+import {
+  useGetDataQuery,
+  useGetQuestionQuery,
+} from '../slices/questionnairesApiSlice';
 
 const TreatmentScreen = () => {
   const { userInfo } = useSelector((state) => state.auth);
-  const { data, isLoading, error } = useGetDataQuery();
+  const params = useParams();
+  const [disease, setDisease] = useState([]);
+  const { data: question, isLoading, error } = useGetQuestionQuery(params.id);
+  const {
+    data: treatments,
+    isLoading: treatmentLoading,
+    error: treatmentError,
+  } = useGetDataQuery();
   const [randomItems, setRandomItems] = useState([]);
   const navigate = useNavigate();
 
-  const getRandomItems = (items) => {
-    const shuffled = [...items].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, 2);
-  };
-
   useEffect(() => {
-    if (data && data.data) {
-      const selectedItems = getRandomItems(data.data);
-      setRandomItems(selectedItems);
-    }
-  }, [data]);
+    if (question && treatments) {
+      // Filter to find all diseases that match the predicted disease
+      const matchingDiseases = treatments.data.filter(
+        (treatment) => treatment.disease === question.data.predictResult.disease
+      );
 
-  if (isLoading) {
+      if (matchingDiseases.length > 0) {
+        setDisease(matchingDiseases); // Store all matching diseases in the state
+      }
+    }
+  }, [question, treatments]);
+
+  if (isLoading || treatmentLoading) {
     return <Loader />;
   }
 
-  if (error) {
+  if (error || treatmentError) {
     return <p>Failed to fetch competition data. Please try again later.</p>;
   }
 
+  console.log(question);
+  console.log(treatments);
+  console.log(disease);
+
   // handle to dermatologist function
   const handleDermatologist = (id) => {
-    // console.log(id);
     navigate(`/diseases/${id}`);
   };
   return (
@@ -42,14 +56,11 @@ const TreatmentScreen = () => {
         <h2>Our Model Help You Find Your Treatment. Check it out</h2>
       </div>
       <div className="recommendationContainer">
-        <h1>
-          Hey! <span>{userInfo.name}</span>. This is your Recommendations
-        </h1>
+        <h1>Recommend Treatments</h1>
         <div className="recommendBox">
-          {randomItems.map((item) => (
+          {disease.map((item) => (
             <div className="boxes" key={item._id}>
               <h3>{item.name}</h3>
-              <p>{item.description}</p>
               <strong onClick={() => handleDermatologist(item._id)}>
                 See More
               </strong>

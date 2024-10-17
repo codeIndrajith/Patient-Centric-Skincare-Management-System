@@ -76,4 +76,14 @@ const gettingOne = asyncHandler(async (req, res) => {
   }
 });
 
-export { questions, getting, gettingOne };
+const gettingQuestion = asyncHandler(async (req, res) => {
+  const getOne = await Questionnaire.findById(req.params.id);
+  if (getOne) {
+    res.status(200).json({ success: true, data: getOne });
+  } else {
+    res.status(404);
+    throw new Error('Data not found');
+  }
+});
+
+export { questions, getting, gettingOne, gettingQuestion };

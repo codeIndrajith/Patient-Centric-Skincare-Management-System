@@ -50,8 +50,8 @@
 
 .infoTreatment p {
     text-align: center;
-    font-size: 1.3rem;
-    padding: 2% 7%;
+    font-size: 1rem;
+    padding: 2% 15%;
 }
 
 .infoTreatment button {
@@ -70,6 +70,20 @@
 
 .carouselSection {
     width: 60%;
+    height: 50%;
+}
+/* Custom styling for Carousel images */
+.carouselImage {
+    width: 100%; /* Set width as needed, or use a fixed width like 300px */
+    height: auto; /* Use 'auto' to maintain aspect ratio, or set a specific height */
+    object-fit: cover; /* Makes sure the image covers the area nicely */
+}
+
+/* If you want to use fixed width/height */
+.carouselImage {
+    width: 400px; /* Or any specific width */
+    height: 300px; /* Or any specific height */
+    object-fit: cover; /* Adjust image aspect ratio without stretching */
 }
 
 .heading {
@@ -81,7 +95,7 @@
 }
 
 .treatment-videos {
-    margin-top: 10%;
+    margin-top: 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -210,18 +210,18 @@ const Questionnaire = () => {
                   type="submit"
                   className="btn-custom"
                   style={{
-                    marginTop: '15px',
-                    padding: '10px',
+                    marginTop: '5px',
+                    padding: '5px',
                     width: '100%',
                   }}
                 >
                   SEND
                 </button>
-                {isLoading && <Loader />}
               </Form>
             </Card.Body>
           </Card>
         </Col>
+        {isLoading && <Loader />}
         <Col className="imageSectionDoc">
           <div className="doctorPng">
             <div className="titleUpImage">
