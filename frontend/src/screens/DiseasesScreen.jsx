@@ -4,16 +4,34 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import { MdOndemandVideo } from 'react-icons/md';
 import { MdRateReview } from 'react-icons/md';
 import { useNavigate, useParams } from 'react-router-dom';
-import treatment_1 from '../images/treatment_1.jpg';
-import treatment_2 from '../images/treatment_2.png';
-import treatment_3 from '../images/treatment_3.jpg';
-import treatmentVideo_1 from '../videos/video_1.mp4';
-import treatmentVideo_2 from '../videos/video_2.mp4';
 import { Carousel } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import ReviewTreatment from '../components/ReviewTreatment';
 import { useGetDataOneQuery } from '../slices/questionnairesApiSlice';
 import Loader from '../components/Loader';
+import v1 from '../videos/670a73e785b00b8432bcf68c.mp4';
+import v2 from '../videos/670a73d085b00b8432bcf68b.mp4';
+import v3 from '../videos/670a73bf85b00b8432bcf68a.mp4';
+import v4 from '../videos/670a73af85b00b8432bcf689.mp4';
+import v5 from '../videos/670a73a185b00b8432bcf688.mp4';
+import v6 from '../videos/670a738f85b00b8432bcf687.mp4';
+import v7 from '../videos/670a737c85b00b8432bcf686.mp4';
+import v8 from '../videos/670a736a85b00b8432bcf685.mp4';
+import v9 from '../videos/670a734485b00b8432bcf684.mp4';
+import v10 from '../videos/670a72e785b00b8432bcf683.mp4';
+
+const videos = [
+  { id: '670a73e785b00b8432bcf68c', url: v1 },
+  { id: '670a73d085b00b8432bcf68b', url: v2 },
+  { id: '670a73bf85b00b8432bcf68a', url: v3 },
+  { id: '670a73af85b00b8432bcf689', url: v4 },
+  { id: '670a73a185b00b8432bcf688', url: v5 },
+  { id: '670a738f85b00b8432bcf687', url: v6 },
+  { id: '670a737c85b00b8432bcf686', url: v7 },
+  { id: '670a736a85b00b8432bcf685', url: v8 },
+  { id: '670a734485b00b8432bcf684', url: v9 },
+  { id: '670a72e785b00b8432bcf683', url: v10 },
+];
 
 const DiseasesScreen = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -31,7 +49,7 @@ const DiseasesScreen = () => {
     return <p>Failed to fetch competition data. Please try again later.</p>;
   }
 
-  console.log(data.data.images.img1);
+  console.log(v1);
 
   // handle information function
   const handleInformation = () => {
@@ -100,9 +118,15 @@ const DiseasesScreen = () => {
           <div className="treatment-videos">
             <div className="d-flex gap-3">
               <div className="video-wrapper">
-                <a href={treatmentVideo_1}>
-                  <MdOndemandVideo />
-                </a>
+                {videos.find((video) => data.data._id === video.id) && (
+                  <a
+                    href={
+                      videos.find((video) => data.data._id === video.id).url
+                    }
+                  >
+                    <MdOndemandVideo />
+                  </a>
+                )}
               </div>
             </div>
           </div>
