@@ -31,6 +31,8 @@ const DiseasesScreen = () => {
     return <p>Failed to fetch competition data. Please try again later.</p>;
   }
 
+  console.log(data.data.images.img1);
+
   // handle information function
   const handleInformation = () => {
     setIsClicked(true);
@@ -72,21 +74,21 @@ const DiseasesScreen = () => {
               <Carousel>
                 <Carousel.Item>
                   <img
-                    src={treatment_1}
+                    src={data.data.images.img1}
                     className="d-block carouselImage"
                     alt="image"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
-                    src={treatment_2}
+                    src={data.data.images.img2}
                     className="d-block carouselImage"
                     alt="image"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
-                    src={treatment_3}
+                    src={data.data.images.img3}
                     className="d-block carouselImage"
                     alt="image"
                   />
@@ -99,11 +101,6 @@ const DiseasesScreen = () => {
             <div className="d-flex gap-3">
               <div className="video-wrapper">
                 <a href={treatmentVideo_1}>
-                  <MdOndemandVideo />
-                </a>
-              </div>
-              <div className="video-wrapper">
-                <a href={treatmentVideo_2}>
                   <MdOndemandVideo />
                 </a>
               </div>

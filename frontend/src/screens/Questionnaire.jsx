@@ -168,9 +168,6 @@ const Questionnaire = () => {
                     <option value="Hives">Hives</option>
                     <option value="Scabies">Scabies</option>
                     <option value="Allergen">Allergen</option>
-                    <option value="Contact-dermatitis">
-                      Contact dermatitis
-                    </option>
                     <option value="Rashes">Rashes</option>
                   </Form.Control>
                 </Form.Group>

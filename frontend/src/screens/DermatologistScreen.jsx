@@ -102,21 +102,25 @@ const DermatologistScreen = () => {
   if (error) {
     return <p>Failed to fetch competition data. Please try again later.</p>;
   }
+
   return (
     <div className="doctorContainer">
       <div className="doctorInfoSection">
         {/* First box section */}
         <div className="doctorInfo">
           <div className="doctorPersonalDetails">
-            <h1>{doctorData.data.name}</h1>
+            {/* Profile image */}
+            <div className="profileImageSection">
+              <img
+                src={doctorData.data.profileImage}
+                alt="Doctor Profile"
+                className="profileImage"
+              />
+              <h6>{doctorData.data.name}</h6>
+            </div>
           </div>
           <h5>OUR HEALTH CLINIC</h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-            dolorem quos assumenda deserunt non dolores, nemo ducimus
-            consequuntur reiciendis sequi veniam placeat, maiores corrupti
-            sapiente? Dolor exercitationem error natus esse.
-          </p>
+          <p>{doctorData.data.description}</p>
 
           <div className="appointments">
             <button className="bookApppointments" onClick={openModal}>
@@ -191,19 +195,32 @@ const DermatologistScreen = () => {
                 <div className="schedule">
                   <AiFillSchedule className="scheduleIcon" />
                   <h1>Schedule an Appointment</h1>
-                  <p>Get your appointment with our specialists.</p>
                 </div>
               </div>
             </Modal>
           </div>
           <div className="contacts">
+            {/* <div className="social">
+              <a
+                href={`https://wa.me/${doctorData.data.whatsAppNo}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-success"
+              >
+                <FaWhatsapp className="socialIcon text-success" />
+                <label className="text-success">WhatsApp</label>
+              </a>
+            </div> */}
             <div className="social">
-              <FaWhatsapp className="socialIcon text-success" />
-              <label className="text-success">WhatsApp</label>
-            </div>
-            <div className="social">
-              <MdOutlineEmail className="socialIcon text-danger" />
-              <label className="text-danger">Email</label>
+              <a
+                href={`mailto:${doctorData.data.email}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-danger"
+              >
+                <MdOutlineEmail className="socialIcon text-danger" />
+                <label className="text-danger">Email</label>
+              </a>
             </div>
           </div>
         </div>
@@ -215,24 +232,25 @@ const DermatologistScreen = () => {
               <FaBriefcaseMedical className="serviceIcon" />
               <div className="servicesInfo">
                 <h5>Medical check Up</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>Regular check-ups to monitor your health.</p>
               </div>
             </div>
             <div className="services">
               <FaShuttleVan className="serviceIcon" />
               <div className="servicesInfo">
                 <h5>Emergency</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>24/7 emergency care for urgent needs.</p>
               </div>
             </div>
             <div className="services">
               <BsCapsule className="serviceIcon" />
               <div className="servicesInfo">
                 <h5>Pharmacy</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>Convenient access to medications and advice.</p>
               </div>
             </div>
           </div>
+
           <div>
             <ReviewDoctor treatmentId={1} />
           </div>

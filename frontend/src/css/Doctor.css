@@ -71,9 +71,6 @@
     cursor: pointer;
 }
 
-.doctorPersonalDetails {
-    margin-right: 40%;
-}
 
 .doctorPersonalDetails > h1 {
     font-size: 4.5rem;
@@ -136,6 +133,7 @@
 .doctorService {
     width: calc(100% - 60%);
     min-height: 100vh;
+    padding-bottom: 100px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -158,14 +156,13 @@
     font-size: 1.7rem;
 }
 
-.doctorProfileImage {
-    width: 50%;
-    height: 30vh;
+.profileImageSection {
+    /* margin-top: -20px; */
     display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    align-items: end;
-    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .profileImage {
@@ -177,6 +174,7 @@
     display: flex;
     flex-direction: column;
     padding: 0 10%;
+    margin-top: 6%;
 }
 
 .services {
