@@ -12,6 +12,7 @@ const PredictScreen = () => {
   const handlePrediction = () => {
     navigate(`/treatments/${questionInfo._id}`);
   };
+  console.log(questionInfo);
   return (
     <div className="predictContainer">
       <div className="bodySection">
@@ -26,37 +27,50 @@ const PredictScreen = () => {
             <Loader />
           )}
         </div>
-        <div className="information">
-          <div className="details issue">
-            <h5>Disease</h5>
-            <p>{questionInfo.predictResult.disease}</p>
+        {questionInfo.predictResult.accuracy < 41.19 ? (
+          <div className="information">
+            <div className="details issue">
+              <p>
+                Your skin is mostly good. But meet your doctor to get a more
+                result
+              </p>
+            </div>
           </div>
-          <div className="details">
-            <h5>Age</h5>
-            <p>{questionInfo.age}</p>
-          </div>
-          <div className="details">
-            <h5>Skin Type</h5>
-            <p>{questionInfo.skinType}</p>
-          </div>
-          <div className="details">
-            <h5>Allergies</h5>
-            <p>{questionInfo.allergies}</p>
-          </div>
-          <div className="details">
-            <h5>Pregnant Breast feeding</h5>
-            <p>{questionInfo.isPregnantBreastfeeding}</p>
-          </div>
-          <div className="details">
-            <h5>History Of Heart Attacks</h5>
-            <p>{questionInfo.hasHistoryOfHeartAttacks}</p>
-          </div>
-        </div>
-        <div className="predictButton">
-          <button onClick={handlePrediction} type="button">
-            Check Treatment
-          </button>
-        </div>
+        ) : (
+          <>
+            <div className="information">
+              <div className="details issue">
+                <h5>Disease</h5>
+                <p>{questionInfo.predictResult.disease}</p>
+              </div>
+              <div className="details">
+                <h5>Age</h5>
+                <p>{questionInfo.age}</p>
+              </div>
+              <div className="details">
+                <h5>Skin Type</h5>
+                <p>{questionInfo.skinType}</p>
+              </div>
+              <div className="details">
+                <h5>Allergies</h5>
+                <p>{questionInfo.allergies}</p>
+              </div>
+              <div className="details">
+                <h5>Pregnant Breast feeding</h5>
+                <p>{questionInfo.isPregnantBreastfeeding}</p>
+              </div>
+              <div className="details">
+                <h5>History Of Heart Attacks</h5>
+                <p>{questionInfo.hasHistoryOfHeartAttacks}</p>
+              </div>
+            </div>
+            <div className="predictButton">
+              <button onClick={handlePrediction} type="button">
+                Check Treatment
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
