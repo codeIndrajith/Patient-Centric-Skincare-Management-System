@@ -221,12 +221,6 @@ const Questionnaire = () => {
         {isLoading && <Loader />}
         <Col className="imageSectionDoc">
           <div className="doctorPng">
-            <div className="titleUpImage">
-              <p>
-                Find Treatment and Dermatologist for your Skin Issue in one
-                place
-              </p>
-            </div>
             <img src={quizDoc} alt="doctor" />
           </div>
         </Col>

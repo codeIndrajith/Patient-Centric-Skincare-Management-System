@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../CSS/ReviewTreatment.css';
 import { toast } from 'react-hot-toast';
 
-function ReviewTreatment({ treatmentId }) {
+function ReviewTreatment({ treatmentId, name }) {
   const [show, setShow] = useState(false);
   const [reviews, setReviews] = useState([
     { user: 'John Doe', rating: 5, review: 'Great treatment!' },
@@ -29,7 +29,7 @@ function ReviewTreatment({ treatmentId }) {
     } else {
       setReviews([
         ...reviews,
-        { user: 'New User', rating: newRating, review: newReview },
+        { user: name, rating: newRating, review: newReview },
       ]);
       setNewReview('');
       setNewRating(5);

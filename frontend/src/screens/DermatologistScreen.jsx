@@ -118,14 +118,15 @@ const DermatologistScreen = () => {
                 className="profileImage"
               />
               <h6>{doctorData.data.name}</h6>
+              <p>{doctorData.data.email}</p>
             </div>
           </div>
-          <h5>OUR HEALTH CLINIC</h5>
+          <h5>Health Clinic</h5>
           <p>{doctorData.data.description}</p>
 
           <div className="appointments">
             <button className="bookApppointments" onClick={openModal}>
-              Book Appointment
+              Appointment
             </button>
 
             <Modal isOpen={isModalOpen} onClose={closeModal}>
@@ -200,34 +201,12 @@ const DermatologistScreen = () => {
               </div>
             </Modal>
           </div>
-          <div className="contacts">
-            {/* <div className="social">
-              <a
-                href={`https://wa.me/${doctorData.data.whatsAppNo}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-success"
-              >
-                <FaWhatsapp className="socialIcon text-success" />
-                <label className="text-success">WhatsApp</label>
-              </a>
-            </div> */}
-            <div className="social">
-              <a
-                href={`mailto:${doctorData.data.email}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-danger"
-              >
-                <MdOutlineEmail className="socialIcon text-danger" />
-                <label className="text-danger">Email</label>
-              </a>
-            </div>
-          </div>
         </div>
         {/* Second Box section */}
         <div className="doctorService">
-          <h2>SERVICES</h2>
+          <div>
+            <h2>Services</h2>
+          </div>
           <div className="serviceList">
             <div className="services">
               <FaBriefcaseMedical className="serviceIcon" />
@@ -253,7 +232,7 @@ const DermatologistScreen = () => {
           </div>
 
           <div>
-            <ReviewDoctor treatmentId={1} />
+            <ReviewDoctor treatmentId={1} name={userInfo.name} />
           </div>
         </div>
       </div>

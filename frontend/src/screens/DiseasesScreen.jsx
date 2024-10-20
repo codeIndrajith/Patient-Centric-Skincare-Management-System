@@ -49,8 +49,6 @@ const DiseasesScreen = () => {
     return <p>Failed to fetch competition data. Please try again later.</p>;
   }
 
-  console.log(v1);
-
   // handle information function
   const handleInformation = () => {
     setIsClicked(true);
@@ -131,7 +129,7 @@ const DiseasesScreen = () => {
             </div>
           </div>
           <div className="reviewTable">
-            <ReviewTreatment treatmentId={1} />
+            <ReviewTreatment treatmentId={1} name={userInfo.name} />
           </div>
         </div>
       </div>
