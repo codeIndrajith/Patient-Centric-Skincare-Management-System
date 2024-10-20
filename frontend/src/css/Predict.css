@@ -11,6 +11,15 @@
     color: rgb(100, 9, 9);
     border-radius: 15px;
     margin: 0 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.new {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.7rem;
 }
 
 .issue > p {
