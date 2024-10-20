@@ -9,6 +9,7 @@ import userRoutes from './routes/userRoutes.js';
 import questionRoutes from './routes/questionRoutes.js';
 import treatmentRoutes from './routes/treatmentsRoute.js';
 import doctorRoutes from './routes/doctorRoutes.js';
+import appointmentRoutes from './routes/appointmentRoute.js';
 import cloudinaryConfig from './config/cloudinary.js';
 
 const port = process.env.PORT || 5000;
@@ -26,6 +27,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/questionnaire', questionRoutes);
 app.use('/api/treatments', treatmentRoutes);
 app.use('/api/doctor', doctorRoutes);
+app.use('/api/appointments', appointmentRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   const __dirname = path.resolve();

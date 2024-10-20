@@ -9,7 +9,7 @@ import { BsCapsule } from 'react-icons/bs';
 import { AiFillSchedule } from 'react-icons/ai';
 import profile from '../images/docProfile1.jpg';
 import Modal from '../components/Modal';
-import { useAddAppointmentsMutation } from '../slices/usersApiSlice';
+import { useAddAppointmentMutation } from '../slices/appointmentApiSlice';
 import toast from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import Loader from '../components/Loader';
@@ -24,6 +24,7 @@ const DermatologistScreen = () => {
 
   // user information
   const { userInfo } = useSelector((state) => state.auth);
+  console.log(userInfo);
 
   const initialFormData = {
     name: '',
@@ -38,7 +39,7 @@ const DermatologistScreen = () => {
 
   // call the appointments route to send the data in backend
   const [appointment, { isLoading: loadingAppointment }] =
-    useAddAppointmentsMutation();
+    useAddAppointmentMutation();
 
   // Model open
   const openModal = () => {
@@ -68,10 +69,10 @@ const DermatologistScreen = () => {
       toast.error('Select service');
     } else {
       const res = await appointment({
-        id: userInfo._id,
-        name: formData.name,
-        time: formData.time,
-        phoneNumber: formData.phoneNumber,
+        patientId: userInfo._id,
+        patientName: formData.name,
+        patientTime: formData.time,
+        patientPhoneNumber: formData.phoneNumber,
         service: formData.service,
         date: formData.date,
       });

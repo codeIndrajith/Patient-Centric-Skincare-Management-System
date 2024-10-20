@@ -1,0 +1,58 @@
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .appointments-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .appointment-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .appointment-card:hover {
+    transform: scale(1.05);
+  }
+  
+  h3 {
+    margin-bottom: 10px;
+    color: #007bff;
+  }
+  
+  p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .status-confirmed {
+    color: green;
+  }
+  
+  .status-pending {
+    color: orange;
+  }
+  
+  .status-completed {
+    color: gray;
+  }
+  
+  @media (max-width: 768px) {
+    .appointments-section {
+      grid-template-columns: 1fr;
+    }
+  }
+  
