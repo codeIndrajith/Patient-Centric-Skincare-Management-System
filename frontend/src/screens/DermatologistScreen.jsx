@@ -71,7 +71,7 @@ const DermatologistScreen = () => {
       const res = await appointment({
         patientId: userInfo._id,
         patientName: formData.name,
-        patientTime: formData.time,
+        patientTime: formData.availableTime,
         patientPhoneNumber: formData.phoneNumber,
         service: formData.service,
         date: formData.date,
@@ -155,16 +155,18 @@ const DermatologistScreen = () => {
                     required
                   />
                   <label>
-                    <strong>Time</strong>
+                    <strong>Available Time: {doctorData.data.channeling_time}</strong>
                   </label>
-                  <input
-                    type="time"
-                    name="time"
-                    placeholder="Time"
-                    value={formData.time}
-                    onChange={handleChange}
-                    required
-                  />
+                  <div className="timeRange">
+                    <input
+                      type="time"
+                      name="availableTime"
+                      placeholder="Start Time"
+                      value={formData.availableTime}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
                   <label>
                     <strong>Service</strong>
                   </label>

@@ -39,7 +39,6 @@ const Dashboard = () => {
   if (error) {
     return <p>Failed to fetch competition data. Please try again later.</p>;
   }
-  console.log(data);
   return (
     <div className="dashboard-container">
       <h1>User Appointments</h1>
@@ -55,7 +54,7 @@ const Dashboard = () => {
               })}
             </p>
             <p>Time: {appointment.patientTime}</p>
-            <p>Time: {appointment.service}</p>
+            <p>Services: {appointment.service}</p>
           </div>
         ))}
       </div>

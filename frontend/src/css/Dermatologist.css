@@ -2,9 +2,9 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    color: white; 
-  }
-  
+    color: white;
+}
+
 
 
 .informationToggle {
@@ -24,67 +24,79 @@
 
 .infoTreatment,
 .informationDetails {
-  flex: 1; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px; 
-  transition-duration: 1000ms;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition-duration: 1000ms;
 }
 
 .infoTreatment {
-  background: #007e85;
-  color: rgb(2, 0, 0);
-  border-right: 1px solid #ddd; 
+    background: #007e85;
+    color: rgb(2, 0, 0);
+    border-right: 1px solid #ddd;
 }
 
 .informationDetails {
-  color: black;
+    color: black;
 }
 
-.infoTreatment h1 {
-    font-size: 6rem;
+.infoTreatment h2 {
+    font-size: 2.7rem;
     text-align: center;
 }
 
 .infoTreatment p {
     text-align: center;
     font-size: 1rem;
-    padding: 2% 15%;
+    padding: 2% 10%;
     color: aliceblue;
 }
 
-.infoTreatment button {
-    border: none;
-    padding: 15px 30px;
-    border-radius: 30px;
-    background-color: black;
-    color: white;
-    font-size: 1.2rem;
-    transition-duration: 500ms;
+.infoTreatment h4 {
+    width: 100%;
+    padding-right: 50%;
 }
 
-.infoTreatment button:hover {
-    background-color: #5d632b;
+.infoTreatment h5 {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.infoTreatment>button {
+    border: none;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    transition-duration: 500ms;
+    background-color: black;
 }
 
 .carouselSection {
     width: 60%;
     height: 50%;
 }
+
 /* Custom styling for Carousel images */
 .carouselImage {
-    width: 100%; /* Set width as needed, or use a fixed width like 300px */
-    height: auto; /* Use 'auto' to maintain aspect ratio, or set a specific height */
-    object-fit: cover; /* Makes sure the image covers the area nicely */
+    width: 100%;
+    /* Set width as needed, or use a fixed width like 300px */
+    height: auto;
+    /* Use 'auto' to maintain aspect ratio, or set a specific height */
+    object-fit: cover;
+    /* Makes sure the image covers the area nicely */
 }
 
 /* If you want to use fixed width/height */
 .carouselImage {
-    width: 400px; /* Or any specific width */
-    height: 300px; /* Or any specific height */
-    object-fit: cover; /* Adjust image aspect ratio without stretching */
+    width: 400px;
+    /* Or any specific width */
+    height: 300px;
+    /* Or any specific height */
+    object-fit: cover;
+    /* Adjust image aspect ratio without stretching */
 }
 
 .heading {
@@ -103,7 +115,7 @@
     align-items: center;
 }
 
-.treatment-videos > h3 {
+.treatment-videos>h3 {
     font-size: 3rem;
     border-bottom: 1px solid gray;
     color: #007e85;
@@ -116,7 +128,7 @@
     width: 100%;
 }
 
-.video-wrapper > a {
+.video-wrapper>a {
     text-decoration: none;
     margin-top: 10px;
     color: black;
@@ -124,8 +136,8 @@
     transition-duration: 500ms;
 }
 
-.video-wrapper > a:hover {
-    color:#007e85;
+.video-wrapper>a:hover {
+    color: #007e85;
 }
 
 .reviewTable {
@@ -136,6 +148,7 @@
     cursor: pointer;
     font-size: 2.3rem;
 }
+
 /* ******************* Responsive Screen *************************** */
 
 @media only screen and (max-width: 600px) {
@@ -143,6 +156,7 @@
         width: 100%;
         padding-top: 10%;
     }
+
     .infoTreatment {
         display: none;
         flex: none;
@@ -284,7 +298,7 @@
     .infoTreatment button {
         margin-top: 10px;
     }
-    
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -307,11 +321,7 @@
     }
 
     .informationDetails {
-       max-height: 100vh;
+        max-height: 100vh;
     }
 
 }
-
-
-
-

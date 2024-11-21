@@ -49,6 +49,8 @@ const DiseasesScreen = () => {
     return <p>Failed to fetch competition data. Please try again later.</p>;
   }
 
+  console.log(data)
+
   // handle information function
   const handleInformation = () => {
     setIsClicked(true);
@@ -75,18 +77,30 @@ const DiseasesScreen = () => {
       </div>
 
       <div className="contentsInfo">
-        <div className={`${isClicked && 'hiddenInfo'} infoTreatment`}>
-          <h2>{data.data.name}</h2>
-          <p>{data.data.description}</p>
-          <button onClick={handleDermatologist} type="button">
-            Find Dermatologists
-          </button>
-        </div>
+      <div className={`infoTreatment ${isClicked ? 'hiddenInfo' : ''}`}>
+  <h2 className="treatmentTitle">{data.data.name}</h2>
+  <p className="treatmentDescription">{data.data.description}</p>
+  
+  <h4 className="stepsTitle">Treatment Guide</h4>
+  <ul className="treatmentSteps">
+    {data.data.treatmentSteps && data.data.treatmentSteps.map((item, index) => (
+      <li key={index} className="treatmentStepItem">
+        <span className="stepNumber"></span> {item}
+      </li>
+    ))}
+  </ul>
+
+  <h5 className="treatmentCost">Cost: {data.data.treatmentCost}</h5>
+  <button onClick={handleDermatologist} type="button" className="dermatologistButton">
+    Dermatologists
+  </button>
+</div>
+
         <div className="informationDetails">
           {/* Images to treatment  */}
           <div className="carouselSection">
             <div id="carouselExampleAutoplaying" className="carousel slide">
-              <h1 className="heading">OUR SERVICES</h1>
+              <h1 className="heading">Treatments</h1>
               <Carousel>
                 <Carousel.Item>
                   <img
