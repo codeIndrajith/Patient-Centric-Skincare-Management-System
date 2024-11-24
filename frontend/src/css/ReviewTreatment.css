@@ -1,8 +1,12 @@
+/* Add these styles to your CSS file */
+
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,108 +14,97 @@
 
 .modal {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  background: white;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
   width: 100%;
-  height: 100vh;
-  max-width: 100%;
-  padding-top: 140px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .modal-header {
-  width: 60%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 10px;
   margin-bottom: 20px;
 }
 
 .modal-header h2 {
-  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .close-button {
-  background: transparent;
+  background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  color: red;
 }
 
-.modal-body {
-  margin-bottom: 20px;
-  width: 60%;
+.rating-container {
+  margin-bottom: 15px;
 }
 
-.table-container {
-  max-height: 200px;
-  overflow-y: auto;
-  margin-bottom: 20px;
+.rating {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
 }
 
-.review-table {
-  width: 100%;
-  border-collapse: collapse;
+.star {
+  font-size: 1.5rem;
+  color: #ccc;
+  cursor: pointer;
 }
 
-.review-table th,
-.review-table td {
-  border: 1px solid #e5e5e5;
-  padding: 8px;
-  text-align: left;
+.star.filled {
+  color: #ffb400;
 }
 
 .form-group {
   margin-bottom: 15px;
 }
 
-.form-control {
+textarea.form-control {
   width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
-.modal-footer {
-  display: flex;
-  justify-content: flex-end;
-  border-top: 1px solid #e5e5e5;
-  padding-top: 10px;
+textarea.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .btn-primary {
-  background-color: #028d58;
+  background-color: #007bff;
   color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
 }
 
 .btn-secondary {
-  background-color: #0a0909;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  margin-right: 10px;
+  background-color: #ccc;
+  color: black;
 }
 
-@media (max-width: 600px) {
+.btn-secondary:hover {
+  background-color: #999;
+}
+
+@media (max-width: 768px) {
   .modal {
     width: 100%;
-  }
-
-  .modal-header {
-    width: 100%;
-  }
-
-  .modal-body {
-    width: 100%;
+    padding: 10px;
   }
 }

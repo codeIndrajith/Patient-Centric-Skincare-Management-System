@@ -7,6 +7,8 @@ import { toast } from 'react-toastify';
 import Loader from '../components/Loader';
 import { useUpdateUserMutation } from '../slices/usersApiSlice';
 import { setCredentials } from '../slices/authSlice';
+import profileImage from '../images/Update.svg'
+import '../css/Profile.css'
 
 const ProfileScreen = () => {
   const [email, setEmail] = useState('');
@@ -46,55 +48,70 @@ const ProfileScreen = () => {
     }
   };
   return (
-    <FormContainer>
-      <h1>Update Profile</h1>
+    <div className='profileContainer'>
+      <div className='profileImageSection'>
+      <img src={profileImage} alt="profileImage" />
+    </div>
+      <div className="formSec">
+        <h1>Update Profile</h1>
 
-      <Form onSubmit={submitHandler}>
-        <Form.Group className='my-2' controlId='name'>
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            type='name'
-            placeholder='Enter name'
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group className='my-2' controlId='email'>
-          <Form.Label>Email Address</Form.Label>
-          <Form.Control
-            type='email'
-            placeholder='Enter email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group className='my-2' controlId='password'>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Enter password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
+        <form onSubmit={submitHandler}>
+          <div className="form-group my-2">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="form-control"
+            />
+          </div>
 
-        <Form.Group className='my-2' controlId='confirmPassword'>
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Confirm password'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
+          <div className="form-group my-2">
+            <label htmlFor="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="form-control"
+            />
+          </div>
 
-        <Button type='submit' variant='primary' className='mt-3'>
-          Update
-        </Button>
+          <div className="form-group my-2">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="form-control"
+            />
+          </div>
 
-        {isLoading && <Loader />}
-      </Form>
-    </FormContainer>
+          <div className="form-group my-2">
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="form-control"
+            />
+          </div>
+
+          <button type="submit" className="update-btn btn-primary mt-3">
+            Update
+          </button>
+
+          {isLoading && <Loader />}
+        </form>
+      </div>
+    </div>
   );
 };
 

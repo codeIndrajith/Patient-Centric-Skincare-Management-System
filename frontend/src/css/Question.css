@@ -1,93 +1,91 @@
 .background-image {
-  background-color: #007e85;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-    color: rgb(0, 0, 0);
-    font-weight: 600;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
 
-  .cardBody {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-  }
+.cardBody {
+  display: flex;
+  padding: 10% 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
-  .formBody {
-    width: 70%;
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+.formBody {
+  width: 70%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .titleUpImage {
-    font-size: 2rem;
-    color: white;
-    text-align: center;
-    margin: 0 10%;
-  }
+.titleUpImage {
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  margin: 0 10%;
+}
 
-  .formSection {
-    background-color: #ffffff;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-top-right-radius: 120px;
-    border-bottom-right-radius: 120px;
-  }
+.formSection {
+  background-color: #ffffff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .imageSectionDoc {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+.imageSectionDoc {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .questionTitle {
-    font-size: 2.6rem;
-  }
+.questionTitle {
+  font-size: 2.6rem;
+  text-align: start;
+}
 
-  .inputFields {
-    border: none;
-    border-bottom: 1px solid #cec5c5;
-    border-radius: 0;
-    color: rgb(23, 86, 138);
-  }
+.inputFields {
+  border: none;
+  border-bottom: 1px solid #cec5c5;
+  border-radius: 0;
+  color: rgb(23, 86, 138);
+}
 
-  .inputFields:focus {
-    box-shadow: none;
-  }
-  
-  .btn-custom {
-    background-color: #007e85;
-    color: rgb(255, 255, 255);
-    font-weight: 400;
-    font-size: 1rem;
-    border: none;
-    transition-duration: 500ms;
-  }
+.inputFields:focus {
+  box-shadow: none;
+}
 
-  .doctorPng {
-    width: 60%;
-    display:  flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .doctorPng > img {
-    width: 120%;  
-  }
+.btn-custom {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-radius: 5px;
+  font-size: 1rem;
+  border: none;
+  transition-duration: 500ms;
+}
 
-  
+.doctorPng {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctorPng>img {
+  width: 120%;
+}
+
+
 /********************* Responsive design section **********************/
 
 
@@ -96,6 +94,7 @@
   .background-image {
     width: 100%;
   }
+
   .twoSection {
     flex-direction: column;
     width: 100% !;
@@ -120,11 +119,11 @@
     width: 100%;
   }
 
-  .doctorPng > img {
-    width: 70%;
+  .doctorPng>img {
+    width: 80%;
   }
 
-  .titleUpImage > p {
+  .titleUpImage>p {
     padding-top: 20px;
     font-size: 1.4rem;
   }
@@ -143,6 +142,7 @@
   .background-image {
     width: 100%;
   }
+
   .twoSection {
     flex-direction: column;
     width: 100% !;
@@ -167,11 +167,11 @@
     width: 100%;
   }
 
-  .doctorPng > img {
-    width: 50%;
+  .doctorPng>img {
+    width: 70%;
   }
 
-  .titleUpImage > p {
+  .titleUpImage>p {
     padding-top: 20px;
     font-size: 1.7rem;
   }
@@ -182,6 +182,7 @@
   .background-image {
     width: 100%;
   }
+
   .twoSection {
     flex-direction: column;
     width: 100% !;
@@ -206,11 +207,11 @@
     width: 100%;
   }
 
-  .doctorPng > img {
-    width: 50%;
+  .doctorPng>img {
+    width: 70%;
   }
 
-  .titleUpImage > p {
+  .titleUpImage>p {
     padding-top: 20px;
     font-size: 1.7rem;
   }
@@ -227,12 +228,11 @@
     width: 100%;
   }
 
-  .doctorPng > img {
-    width: 80%;
+  .doctorPng>img {
+    width: 70%;
   }
 
-  .titleUpImage > p {
+  .titleUpImage>p {
     font-size: 2rem;
   }
 }
-

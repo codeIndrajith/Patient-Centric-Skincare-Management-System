@@ -4,30 +4,6 @@ import { useGetAppointmentQuery } from '../slices/appointmentApiSlice';
 import { useSelector } from 'react-redux';
 import Loader from '../components/Loader';
 
-const appointments = [
-  {
-    id: 1,
-    doctorName: 'Dr. Sarah Johnson',
-    date: '2024-10-21',
-    time: '10:30 AM',
-    status: 'Confirmed',
-  },
-  {
-    id: 2,
-    doctorName: 'Dr. Michael Lee',
-    date: '2024-10-22',
-    time: '2:00 PM',
-    status: 'Pending',
-  },
-  {
-    id: 3,
-    doctorName: 'Dr. Emily Davis',
-    date: '2024-10-23',
-    time: '9:00 AM',
-    status: 'Completed',
-  },
-];
-
 const Dashboard = () => {
   const { userInfo } = useSelector((state) => state.auth);
   const { data, isLoading, error } = useGetAppointmentQuery(userInfo._id);
@@ -41,24 +17,39 @@ const Dashboard = () => {
   }
   return (
     <div className="dashboard-container">
-      <h1>User Appointments</h1>
-      <div className="appointments-section">
-        {data.data.map((appointment) => (
-          <div className="appointment-card" key={appointment._id}>
-            <p>
-              Date:{' '}
-              {new Date(appointment.date).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-              })}
-            </p>
-            <p>Time: {appointment.patientTime}</p>
-            <p>Services: {appointment.service}</p>
-          </div>
-        ))}
-      </div>
+  <h1>User Appointments</h1>
+  <div className="appointments-section">
+    <div className="table-responsive">
+      <table className="pro-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Services</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.data.map((appointment) => (
+            <tr key={appointment._id}>
+              <td>
+                {new Date(appointment.date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit',
+                })}
+              </td>
+              <td>{appointment.patientTime}</td>
+              <td>{appointment.service}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
+  </div>
+</div>
+
+  
+  
   );
 };
 

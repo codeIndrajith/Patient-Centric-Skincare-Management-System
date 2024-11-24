@@ -88,15 +88,16 @@
 }
 
 .get-started {
-    padding: 3px 5px;
+    padding: 5px 15px;
     margin: 4% 0 0 5%;
     border: none;
-    border-radius: 50px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
-    background-color: #007e85;
+    background-color: #000000;
+    color: white;
     cursor: pointer;
 }
 

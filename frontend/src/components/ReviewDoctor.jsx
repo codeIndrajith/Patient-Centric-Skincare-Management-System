@@ -2,113 +2,77 @@ import React, { useState } from 'react';
 import '../CSS/ReviewDoctor.css';
 import { toast } from 'react-hot-toast';
 
-function ReviewDoctor({ treatmentId, name }) {
-  const [show, setShow] = useState(false);
-  const [reviews, setReviews] = useState([
-    { user: 'John Doe', rating: 5, review: 'Great Doctor!' },
-    { user: 'Jane Smith', rating: 4, review: 'Good but a bit expensive.' },
-    // Add more sample reviews if needed for testing scroll
-    { user: 'Alice', rating: 3, review: 'It was okay.' },
-    { user: 'Bob', rating: 2, review: 'Not satisfied.' },
-    { user: 'Charlie', rating: 5, review: 'Excellent!' },
-    { user: 'David', rating: 4, review: ' good.' },
-    { user: 'Eve', rating: 3, review: 'Average.' },
-    { user: 'Frank', rating: 1, review: 'Terrible experience.' },
-    { user: 'Grace', rating: 5, review: 'Not good it!' },
-    { user: 'Hank', rating: 4, review: 'Good service.' },
-  ]);
-  const [newReview, setNewReview] = useState('');
-  const [newRating, setNewRating] = useState(5);
+function ReviewDoctor({ name }) {
+  const [rating, setRating] = useState(5);
+  const [comment, setComment] = useState('');
+  const [showForm, setShowForm] = useState(false);
 
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+  const handleRatingChange = (value) => {
+    setRating(value);
+  };
 
   const handleAddReview = () => {
-    if (newReview === '') {
-      toast.error('Add review');
+    if (comment === '') {
+      toast.error('Please add a comment');
     } else {
-      setReviews([
-        ...reviews,
-        { user: name, rating: newRating, review: newReview },
-      ]);
-      setNewReview('');
-      setNewRating(5);
-      toast.success('Thank You!');
+      // Send rating and comment to the backend
+      console.log('Rating:', rating, 'Comment:', comment);
+      toast.success('Thank you for your review!');
+      setRating(5); 
+      setComment(''); 
     }
   };
 
   return (
-    <>
-      <button className="btn-primary" onClick={handleShow}>
-        Review Doctor
+    <div className="review-container">
+      <button className="review-btn" onClick={() => setShowForm(true)}>
+        Leave a Review
       </button>
 
-      {show && (
+      {showForm && (
         <div className="modal-overlay">
           <div className="modal">
             <div className="modal-header">
-              <h2>Review Doctor</h2>
-              <button className="close-button" onClick={handleClose}>
+              <h2>Leave a Review</h2>
+              <button className="close-button" onClick={() => setShowForm(false)}>
                 &times;
               </button>
             </div>
             <div className="modal-body">
-              <div className="table-container">
-                <table className="review-table">
-                  <thead>
-                    <tr>
-                      <th>User</th>
-                      <th>Rating</th>
-                      <th>Review</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {reviews.map((review, index) => (
-                      <tr key={index}>
-                        <td>{review.user}</td>
-                        <td>{review.rating}</td>
-                        <td>{review.review}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              <div className="rating-container">
+                <span className="rating-title">Rating:</span>
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <span
+                    key={star}
+                    className={`star ${star <= rating ? 'filled' : ''}`}
+                    onClick={() => handleRatingChange(star)}
+                  >
+                    ★
+                  </span>
+                ))}
+                <span className="rating-value">{rating} stars</span>
               </div>
-              <div className="form-group">
-                <label>Review</label>
+              <div className="comment-container">
+                <label htmlFor="comment">Your Comment:</label>
                 <textarea
-                  rows="3"
-                  value={newReview}
-                  onChange={(e) => setNewReview(e.target.value)}
-                  className="form-control"
+                  id="comment"
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                  rows="4"
+                  className="comment-box"
+                  placeholder="Enter your review here..."
                 />
-              </div>
-              <div className="form-group">
-                <label>Rating</label>
-                <select
-                  value={newRating}
-                  onChange={(e) => setNewRating(Number(e.target.value))}
-                  className="form-control"
-                >
-                  {[1, 2, 3, 4, 5].map((rating) => (
-                    <option key={rating} value={rating}>
-                      {rating}
-                    </option>
-                  ))}
-                </select>
               </div>
             </div>
             <div className="modal-footer">
-              <button className="btn-secondary" onClick={handleClose}>
-                Close
-              </button>
               <button className="btn-primary" onClick={handleAddReview}>
-                Add Review
+                Submit Review
               </button>
             </div>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

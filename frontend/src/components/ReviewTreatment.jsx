@@ -4,97 +4,67 @@ import { toast } from 'react-hot-toast';
 
 function ReviewTreatment({ treatmentId, name }) {
   const [show, setShow] = useState(false);
-  const [reviews, setReviews] = useState([
-    { user: 'John Doe', rating: 5, review: 'Great treatment!' },
-    { user: 'Jane Smith', rating: 4, review: 'Good but a bit expensive.' },
-    // Add more sample reviews if needed for testing scroll
-    { user: 'Alice', rating: 3, review: 'It was okay.' },
-    { user: 'Bob', rating: 2, review: 'Not satisfied.' },
-    { user: 'Charlie', rating: 5, review: 'Excellent!' },
-    { user: 'David', rating: 4, review: 'Pretty good.' },
-    { user: 'Eve', rating: 3, review: 'Average.' },
-    { user: 'Frank', rating: 1, review: 'Terrible experience.' },
-    { user: 'Grace', rating: 5, review: 'Loved it!' },
-    { user: 'Hank', rating: 4, review: 'Good service.' },
-  ]);
   const [newReview, setNewReview] = useState('');
   const [newRating, setNewRating] = useState(5);
+  const [reviews, setReviews] = useState([]); // We'll store reviews here (to send to backend)
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
   const handleAddReview = () => {
     if (newReview === '') {
-      toast.error('Add review');
+      toast.error('Please add a review');
     } else {
-      setReviews([
-        ...reviews,
-        { user: name, rating: newRating, review: newReview },
-      ]);
+      // Store the review in the state (you can send this data to the backend)
+      setReviews([...reviews, { user: name, rating: newRating, review: newReview }]);
       setNewReview('');
       setNewRating(5);
-      toast.success('Thank You!');
+      toast.success('Thank you for your feedback!');
     }
   };
 
   return (
-    <>
+    <div>
       <button className="btn-primary" onClick={handleShow}>
-        Reviews
+        Review Treatment
       </button>
 
       {show && (
         <div className="modal-overlay">
           <div className="modal">
             <div className="modal-header">
-              <h2>Review Treatment</h2>
+              <h2>Leave a Review</h2>
               <button className="close-button" onClick={handleClose}>
                 &times;
               </button>
             </div>
             <div className="modal-body">
-              <div className="table-container">
-                <table className="review-table">
-                  <thead>
-                    <tr>
-                      <th>User</th>
-                      <th>Rating</th>
-                      <th>Review</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {reviews.map((review, index) => (
-                      <tr key={index}>
-                        <td>{review.user}</td>
-                        <td>{review.rating}</td>
-                        <td>{review.review}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              {/* Rating system (5 stars) */}
+              <div className="rating-container">
+                <label>Rating</label>
+                <div className="rating">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <span
+                      key={star}
+                      className={`star ${newRating >= star ? 'filled' : ''}`}
+                      onClick={() => setNewRating(star)}
+                    >
+                      &#9733;
+                    </span>
+                  ))}
+                </div>
               </div>
+
+              {/* Comment box */}
               <div className="form-group">
-                <label>Review</label>
+                <label>Comment</label>
                 <textarea
                   rows="3"
                   value={newReview}
                   onChange={(e) => setNewReview(e.target.value)}
                   className="form-control"
+                  placeholder="Write your feedback here..."
                 />
-              </div>
-              <div className="form-group">
-                <label>Rating</label>
-                <select
-                  value={newRating}
-                  onChange={(e) => setNewRating(Number(e.target.value))}
-                  className="form-control"
-                >
-                  {[1, 2, 3, 4, 5].map((rating) => (
-                    <option key={rating} value={rating}>
-                      {rating}
-                    </option>
-                  ))}
-                </select>
               </div>
             </div>
             <div className="modal-footer">
@@ -102,13 +72,13 @@ function ReviewTreatment({ treatmentId, name }) {
                 Close
               </button>
               <button className="btn-primary" onClick={handleAddReview}>
-                Add Review
+                Submit Review
               </button>
             </div>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

@@ -1,58 +1,89 @@
+/* Container Styles */
 .dashboard-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Responsive Table Styles */
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.pro-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pro-table thead {
+  background-color: #091929;
+  color: #fff;
+}
+
+.pro-table th,
+.pro-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.pro-table th {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.pro-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.pro-table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.pro-table td {
+  color: #555;
+  font-size: 14px;
+}
+
+.pro-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 768px) {
+  .pro-table th,
+  .pro-table td {
+    font-size: 12px;
+    padding: 10px;
   }
-  
+
   h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
+    font-size: 20px;
   }
-  
-  .appointments-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+}
+
+@media (max-width: 480px) {
+  .pro-table th,
+  .pro-table td {
+    font-size: 10px;
+    padding: 8px;
   }
-  
-  .appointment-card {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+
+  h1 {
+    font-size: 18px;
   }
-  
-  .appointment-card:hover {
-    transform: scale(1.05);
-  }
-  
-  h3 {
-    margin-bottom: 10px;
-    color: #007bff;
-  }
-  
-  p {
-    margin: 5px 0;
-    color: #555;
-  }
-  
-  .status-confirmed {
-    color: green;
-  }
-  
-  .status-pending {
-    color: orange;
-  }
-  
-  .status-completed {
-    color: gray;
-  }
-  
-  @media (max-width: 768px) {
-    .appointments-section {
-      grid-template-columns: 1fr;
-    }
-  }
-  
+}

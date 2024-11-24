@@ -15,16 +15,19 @@ import { useSelector } from 'react-redux';
 import Loader from '../components/Loader';
 import ReviewDoctor from '../components/ReviewDoctor';
 import { useGetOneDoctorQuery } from '../slices/doctorApiSlice';
+import { useAddRatingDoctorMutation, useGetRatingLengthDoctorQuery } from '../slices/ratingDoctorApiSlice';
 
 const DermatologistScreen = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [feedbackDoctor, setFeedbackDoctor] = useState('');
 
   // doctor id
-  const doctorId = useParams();
+  const params = useParams();
 
   // user information
   const { userInfo } = useSelector((state) => state.auth);
-  console.log(userInfo);
+  const [addRatingDoctor, {isLoading: ratingLoading}] = useAddRatingDoctorMutation();
+  const {data: ratingLengthDoctor, isLoading: loadingForLength, error: lengthError, refetch} = useGetRatingLengthDoctorQuery(params.id);
 
   const initialFormData = {
     name: '',
@@ -67,21 +70,23 @@ const DermatologistScreen = () => {
       toast.error('Add all fields');
     } else if (formData.service === '') {
       toast.error('Select service');
+    } else if(formData.time === '') {
+      toast.error('Select Time');
     } else {
       const res = await appointment({
         patientId: userInfo._id,
         patientName: formData.name,
-        patientTime: formData.availableTime,
+        patientTime: formData.time,
         patientPhoneNumber: formData.phoneNumber,
         service: formData.service,
         date: formData.date,
       });
 
-      if (res) {
-        toast.success('Appointments success');
+      if (res.error) {
+        toast.error("Appointment Reject");
         setFormData(initialFormData);
       } else {
-        toast.error('Appointments Reject');
+        toast.success('Confirm Appointments');
         setFormData(initialFormData);
       }
     }
@@ -89,12 +94,12 @@ const DermatologistScreen = () => {
     closeModal();
   };
 
-  const params = useParams();
   const {
     data: doctorData,
     isLoading,
     error,
   } = useGetOneDoctorQuery(params.id);
+
 
   if (isLoading) {
     return <Loader />;
@@ -104,141 +109,179 @@ const DermatologistScreen = () => {
     return <p>Failed to fetch competition data. Please try again later.</p>;
   }
 
+  const submitFeedbackDoctor = async (e) => {
+    e.preventDefault();
+    try {
+      if(feedbackDoctor === '') {
+        return toast.error("Please add feedback")
+      }
+      const res = await addRatingDoctor({
+        doctor_id: params.id,
+        user_id: userInfo._id,
+        feedback: feedbackDoctor
+      })
+      if(res.error) {
+        return toast.error("Feedback not send")
+      } else {
+        toast.success("Thank for your Feedback!")
+        setFeedbackDoctor('')
+        refetch()
+      }
+    } catch (error) {
+      console.log("Error: ", error)
+    }
+  }
+
   return (
     <div className="doctorContainer">
-      <div className="doctorInfoSection">
-        {/* First box section */}
-        <div className="doctorInfo">
-          <div className="doctorPersonalDetails">
-            {/* Profile image */}
-            <div className="profileImageSection">
-              <img
-                src={doctorData.data.profileImage}
-                alt="Doctor Profile"
-                className="profileImage"
-              />
-              <h6>{doctorData.data.name}</h6>
-              <p>{doctorData.data.email}</p>
-            </div>
-          </div>
-          <h5>Health Clinic</h5>
-          <p>{doctorData.data.description}</p>
-
-          <div className="appointments">
-            <button className="bookApppointments" onClick={openModal}>
-              Appointment
-            </button>
-
-            <Modal isOpen={isModalOpen} onClose={closeModal}>
-              <div className="appointmentModal">
-                <form className="appointmentForm" onSubmit={submitHandler}>
-                  <label>
-                    <strong>Name</strong>
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
-                  <label>
-                    <strong>Phone Number</strong>
-                  </label>
-                  <input
-                    type="tel"
-                    name="phoneNumber"
-                    placeholder="Your Phone Number"
-                    value={formData.phoneNumber}
-                    onChange={handleChange}
-                    required
-                  />
-                  <label>
-                    <strong>Available Time: {doctorData.data.channeling_time}</strong>
-                  </label>
-                  <div className="timeRange">
-                    <input
-                      type="time"
-                      name="availableTime"
-                      placeholder="Start Time"
-                      value={formData.availableTime}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <label>
-                    <strong>Service</strong>
-                  </label>
-                  <select
-                    name="service"
-                    required
-                    value={formData.service}
-                    onChange={handleChange}
-                  >
-                    <option value="">Select Service</option>
-                    <option value="checkup">Medical Check Up</option>
-                    <option value="emergency">Emergency</option>
-                    <option value="pharmacy">Pharmacy</option>
-                  </select>
-                  <label>
-                    <strong>
-                      <strong>Date</strong>
-                    </strong>
-                  </label>
-                  <input
-                    type="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    required
-                  />
-                  <button type="submit">Book Appointment</button>
-                  {loadingAppointment && <Loader />}
-                </form>
-                <div className="schedule">
-                  <AiFillSchedule className="scheduleIcon" />
-                  <h1>Schedule an Appointment</h1>
-                </div>
-              </div>
-            </Modal>
-          </div>
-        </div>
-        {/* Second Box section */}
-        <div className="doctorService">
-          <div>
-            <h2>Services</h2>
-          </div>
-          <div className="serviceList">
-            <div className="services">
-              <FaBriefcaseMedical className="serviceIcon" />
-              <div className="servicesInfo">
-                <h5>Medical check Up</h5>
-                <p>Regular check-ups to monitor your health.</p>
-              </div>
-            </div>
-            <div className="services">
-              <FaShuttleVan className="serviceIcon" />
-              <div className="servicesInfo">
-                <h5>Emergency</h5>
-                <p>24/7 emergency care for urgent needs.</p>
-              </div>
-            </div>
-            <div className="services">
-              <BsCapsule className="serviceIcon" />
-              <div className="servicesInfo">
-                <h5>Pharmacy</h5>
-                <p>Convenient access to medications and advice.</p>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <ReviewDoctor treatmentId={1} name={userInfo.name} />
-          </div>
-        </div>
+  {/* Doctor Profile Section */}
+  <div className="doctorProfile">
+    <div className="profileCard">
+      <img
+        src={doctorData.data.profileImage}
+        alt="Doctor Profile"
+        className="profileImage"
+      />
+      <div className="profileDetails">
+        <h2 className="doctorName">{doctorData.data.name}</h2>
+        <p className="doctorSpecialization">
+          <strong>Specialization:</strong> {doctorData.data.specialization || "General Physician"}
+        </p>
+        <p className="doctorEmail">{doctorData.data.email}</p>
+        <span>Ratings {ratingLengthDoctor ? ratingLengthDoctor.length/1000 : 0}K</span>
       </div>
     </div>
+  </div>
+
+  {/* Clinic Description Section */}
+  <div className="clinicDetails">
+    <div className="clinicInfo">
+      <h3>Welcome to {doctorData.data.name}'s Clinic</h3>
+      <p>{doctorData.data.description}</p>
+      <button className="appointmentButton" onClick={openModal}>
+        Book an Appointment
+      </button>
+    </div>
+  </div>
+
+  {/* Appointment Modal */}
+  <Modal isOpen={isModalOpen} onClose={closeModal}>
+    <div className="modalContent">
+      <h2>Schedule an Appointment</h2>
+      <form className="appointmentForm" onSubmit={submitHandler}>
+        <div className="formGroup">
+          <label htmlFor="name">Your Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="formGroup">
+          <label htmlFor="phoneNumber">Phone Number</label>
+          <input
+            type="tel"
+            id="phoneNumber"
+            name="phoneNumber"
+            placeholder="Enter your phone number"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="formGroup">
+        <label>
+        Channeling Time - 
+        <strong style={{ color: 'gray', fontWeight: '500' }}>
+          Doctor Available {doctorData.data.channeling_time}
+        </strong>
+      </label>
+          <select
+            name="time"
+            value={formData.time}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select a Time</option>
+            <option value={doctorData.data.availableTimes.time1}>{doctorData.data.availableTimes.time1}</option>
+            <option value={doctorData.data.availableTimes.time2}>{doctorData.data.availableTimes.time2}</option>
+            <option value={doctorData.data.availableTimes.time3}>{doctorData.data.availableTimes.time3}</option>
+          </select>
+        </div>
+        <div className="formGroup">
+          <label>Service</label>
+          <select
+            name="service"
+            value={formData.service}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select a service</option>
+            <option value="checkup">Medical Checkup</option>
+            <option value="emergency">Emergency</option>
+            <option value="pharmacy">Pharmacy</option>
+          </select>
+        </div>
+        <div className="formGroup">
+          <label htmlFor="date">Appointment Date</label>
+          <input
+            type="date"
+            id="date"
+            name="date"
+            value={formData.date}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit" className="submitButton">
+          Confirm Appointment
+        </button>
+        {loadingAppointment && <Loader />}
+      </form>
+    </div>
+  </Modal>
+
+  {/* Services Section */}
+  <div className="servicesSection">
+    <h3>Doctor Services</h3>
+    <div className="servicesGrid">
+      <div className="serviceCard">
+        <FaBriefcaseMedical className="serviceIcon" />
+        <h4>Medical Checkup</h4>
+        <p>Comprehensive health evaluations to ensure your well-being.</p>
+      </div>
+      <div className="serviceCard">
+        <FaShuttleVan className="serviceIcon" />
+        <h4>Emergency</h4>
+        <p>24/7 critical care for urgent medical needs.</p>
+      </div>
+      <div className="serviceCard">
+        <BsCapsule className="serviceIcon" />
+        <h4>Pharmacy</h4>
+        <p>On-site pharmacy for prescriptions and health advice.</p>
+      </div>
+    </div>
+  </div>
+
+  {/* Review Section */}
+  <div className="review-section doc-review">
+      <h4 className="reviewHeading">Why did you leave this rating?</h4>
+      <p className="reviewText">Amazing, above expectations?</p>
+      <textarea 
+      value={feedbackDoctor}
+      onChange={(e) => setFeedbackDoctor(e.target.value)}
+        className="feedback-textarea"
+        placeholder="Tell us about your own personal experience with doctors. Was it a good match for you?"
+      />
+      <button className="submit-button" onClick={submitFeedbackDoctor}>Save and Continue</button>
+    </div>
+</div>
+
+
   );
 };
 

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Loader from '../components/Loader';
 import { toast } from 'react-hot-toast';
 import '../css/Question.css';
-import quizDoc from '../images/quizDoc.png';
+import docImage from '../images/questionairLEFT.gif'
 
 const Questionnaire = () => {
   const dispatch = useDispatch();
@@ -212,7 +212,7 @@ const Questionnaire = () => {
                     width: '100%',
                   }}
                 >
-                  SEND
+                  Add Informations
                 </button>
               </Form>
             </Card.Body>
@@ -221,7 +221,7 @@ const Questionnaire = () => {
         {isLoading && <Loader />}
         <Col className="imageSectionDoc">
           <div className="doctorPng">
-            <img src={quizDoc} alt="doctor" />
+            <img src={docImage} alt="doctorImage" />
           </div>
         </Col>
       </Row>

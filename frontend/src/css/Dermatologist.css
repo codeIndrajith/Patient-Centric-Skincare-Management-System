@@ -1,327 +1,228 @@
+/* Container styles */
 .dermatologistContainer {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
-
-
 .informationToggle {
+    text-align: right;
+}
+
+.showBtn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.hiddenBtn {
     display: none;
 }
 
 .closeBtn {
-    display: none;
+    font-size: 30px;
+    color: #dc3545;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: -5px;
 }
 
 .contentsInfo {
     display: flex;
-    width: 100%;
-    height: 100vh;
-    justify-content: space-between;
-}
-
-.infoTreatment,
-.informationDetails {
-    flex: 1;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    transition-duration: 1000ms;
+    gap: 30px;
 }
 
+/* Information Section */
 .infoTreatment {
-    background: #007e85;
-    color: rgb(2, 0, 0);
-    border-right: 1px solid #ddd;
+    background-color: #e8f0df;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.informationDetails {
-    color: black;
+.treatmentTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.infoTreatment h2 {
-    font-size: 2.7rem;
-    text-align: center;
-}
-
-.infoTreatment p {
-    text-align: center;
-    font-size: 1rem;
-    padding: 2% 10%;
-    color: aliceblue;
-}
-
-.infoTreatment h4 {
-    width: 100%;
-    padding-right: 50%;
-}
-
-.infoTreatment h5 {
-    color: white;
-    font-size: 1.2rem;
-}
-
-.infoTreatment>button {
-    border: none;
-    padding: 10px 20px;
-    color: rgb(255, 255, 255);
-    font-size: 1.2rem;
-    transition-duration: 500ms;
-    background-color: black;
-}
-
-.carouselSection {
-    width: 60%;
-    height: 50%;
-}
-
-/* Custom styling for Carousel images */
-.carouselImage {
-    width: 100%;
-    /* Set width as needed, or use a fixed width like 300px */
-    height: auto;
-    /* Use 'auto' to maintain aspect ratio, or set a specific height */
-    object-fit: cover;
-    /* Makes sure the image covers the area nicely */
-}
-
-/* If you want to use fixed width/height */
-.carouselImage {
-    width: 400px;
-    /* Or any specific width */
-    height: 300px;
-    /* Or any specific height */
-    object-fit: cover;
-    /* Adjust image aspect ratio without stretching */
-}
-
-.heading {
-    text-align: center;
-    font-size: 3rem;
-    margin-top: 20px;
+.treatmentDescription {
+    font-size: 1.1rem;
+    line-height: 1.6;
     margin-bottom: 20px;
-    color: #007e85;
 }
 
+.stepsTitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: start;
+    margin-bottom: 10px;
+}
+
+.treatmentSteps {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.treatmentStepItem {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.stepNumber {
+    font-weight: bold;
+}
+
+.treatmentCost {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.dermatologistButton {
+    padding: 10px 15px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+
+/* Carousel Section */
+.carouselSection {
+    margin-top: 30px;
+}
+
+.carouselImage {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Treatment Video */
 .treatment-videos {
-    margin-top: 20%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-.treatment-videos>h3 {
-    font-size: 3rem;
-    border-bottom: 1px solid gray;
-    color: #007e85;
-    font-weight: 700;
+.videoHeading {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
-.video-wrapper {
+.videoWrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.videoElement {
     width: 100%;
+    max-width: 720px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.video-wrapper>a {
-    text-decoration: none;
-    margin-top: 10px;
-    color: black;
-    font-size: 3rem;
-    transition-duration: 500ms;
+
+.review-section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    font-family: 'Arial', sans-serif;
 }
 
-.video-wrapper>a:hover {
-    color: #007e85;
+.reviewHeading {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-.reviewTable {
-    padding-left: 80%;
+.reviewText {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
 }
 
-.reviewIcon {
+.feedback-textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    resize: vertical;
+    margin-bottom: 20px;
+    transition: border 0.3s ease;
+}
+
+.feedback-textarea:focus {
+    outline: none;
+    border: 1px solid #ffcc00;
+}
+
+.submit-button {
+    background-color: #070600;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 2.3rem;
+    transition: background-color 0.3s ease;
 }
 
-/* ******************* Responsive Screen *************************** */
 
-@media only screen and (max-width: 600px) {
-    .informationDetails {
-        width: 100%;
-        padding-top: 10%;
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .dermatologistContainer {
+        padding: 15px;
     }
 
-    .infoTreatment {
-        display: none;
-        flex: none;
+    .contentsInfo {
+        gap: 20px;
     }
 
-    .hiddenInfo {
-        display: block;
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-        align-items: center;
-        width: 100%;
+    .carouselImage {
+        max-height: 300px;
     }
 
-    .hiddenBtn {
-        display: none;
-        position: absolute;
+    .treatmentTitle {
+        font-size: 1.6rem;
     }
 
-    .visibleClose {
-        margin-top: 60px;
-        margin-left: 190%;
-        position: absolute;
-        font-size: 3rem;
-        color: rgb(255, 255, 255);
-        display: block;
+    .treatmentDescription {
+        font-size: 1rem;
     }
 
-    .informationToggle {
-        width: 40%;
-        position: absolute;
-        display: block;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .informationToggle button {
-        padding: 5% 10%;
-        margin: 10px 20px;
-        border: none;
-        background-color: #007e85;
-        color: wheat;
-    }
-
-    .hiddenInfo h1 {
-        font-size: 3.5rem;
-        padding: 0 2%;
-    }
-
-    .hiddenInfo p {
-        font-size: 1.1rem;
-        text-align: justify;
-        padding: 0 10%;
-    }
-
-    .carouselSection {
-        width: 100%;
-    }
-
-    .treatment-videos {
-        width: 100%;
-    }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) and (max-width: 768px) {
-    .infoTreatment {
-        display: none;
-        flex: none;
-    }
-
-    .hiddenInfo {
-        display: block;
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-        align-items: center;
-        width: 100%;
-    }
-
-    .hiddenBtn {
-        display: none;
-        position: absolute;
-    }
-
-    .visibleClose {
-        margin-top: 60px;
-        margin-left: 190%;
-        position: absolute;
-        font-size: 3rem;
-        color: rgb(255, 255, 255);
-        display: block;
-    }
-
-    .informationToggle {
-        width: 40%;
-        position: absolute;
-        display: block;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .informationToggle button {
-        padding: 5% 10%;
-        margin: 10px 20px;
-        border: none;
-        background-color: #007e85;
-        color: wheat;
-    }
-
-    .hiddenInfo h1 {
-        font-size: 3.5rem;
-        padding: 0 2%;
-    }
-
-    .hiddenInfo p {
-        font-size: 1.1rem;
-        text-align: justify;
-        padding: 0 10%;
-    }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) and (max-width: 992px) {
-
-    .infoTreatment h1 {
-        font-size: 4rem;
-        padding: 0 2%;
-    }
-
-    .infoTreatment p {
+    .stepsTitle {
         font-size: 1.2rem;
-        text-align: justify;
-        padding: 0 10%;
     }
 
-    .infoTreatment button {
-        margin-top: 10px;
-    }
-
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
-
-    .infoTreatment h1 {
-        font-size: 3.2rem;
-        padding: 0 2%;
-    }
-
-    .infoTreatment p {
-        font-size: 1rem;
-        text-align: justify;
-        padding: 0 10%;
-    }
-
-    .infoTreatment button {
-        margin-top: 10px;
+    .treatmentCost {
         font-size: 1rem;
     }
-
-    .informationDetails {
-        max-height: 100vh;
-    }
-
 }

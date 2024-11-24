@@ -1,10 +1,12 @@
 .treatmentContainer {
-    width: 100%; /* Set a width less than 100% to allow centering */
+    width: 100%;
+    /* Set a width less than 100% to allow centering */
     min-height: 100vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .imageContainer {
@@ -51,7 +53,6 @@
 
 .bannerImage {
     background-color: blueviolet;
-    
     width: 60%;
     min-height: 40vh;
 }
@@ -59,13 +60,36 @@
 .recommendationContainer {
     width: 100%;
     height: 100vh;
-    padding: 10px 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vectorImage {
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recommendation-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100vh;
+}
+
+.treatment-title {
+    font-size: 3.7rem;
+    margin-top: 20px;
 }
 
 .recommendationContainer h1 {
-    font-size: 4rem;
+    font-size: 2.7rem;
     text-align: center;
-    margin-bottom: 5%;
 }
 
 .recommendationContainer h1 span {
@@ -76,52 +100,80 @@
 }
 
 .recommendBox {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
+    padding: 20px;
+}
+
+.recommendBox h5 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 .boxes {
-    width: 30%;
-    padding: 2%;
-    min-height: 30vh;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255,255,255,0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10x);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: flex-start;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.titleTreatment {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+}
+
+.diseaseIcon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.description {
+    margin: 10px 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.actionButtons {
+    width: 100%;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
-.boxes h3 {
-    font-size: 2.2rem;
-    font-weight: 700;
+.actionButtons button {
+    padding: 5px;
+    color: #535458;
+    background-color: white;
+    border: none;
+    cursor: pointer;
 }
 
-.boxes p {
-    padding: 0 6%;
-    text-align: justify;
+.actionButtons button:hover {
+    color: #0bd146;
 }
+
+
+.rating {
+    margin-top: 10px;
+    color: #ffc107;
+    font-size: 0.9rem;
+    border: none;
+}
+
 
 .boxes strong {
-    background-color: #007e85;
-    padding: 10px 30px;
-    border-radius: 20px;
-    color: white;
-    font-weight: 300;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    font-size: 1.04em;
     cursor: pointer;
     transition-duration: 500ms;
 }
 
-.boxes strong:hover {
-    background-color:#02969e;
-    transition: 0.5s ease;
-}
 
 /* ******************* Responsive Screen *************************** */
 
@@ -129,9 +181,23 @@
     .imageContainer {
         background-position: right;
     }
-    .imageContainer h2{
+
+    .imageContainer h2 {
         display: none;
     }
+
+    .recommendationContainer {
+        flex-direction: column;
+    }
+
+    .vectorImage img {
+        width: 100%;
+    }
+
+    .recommendation-details {
+        width: 100%;
+    }
+
     .recommendationContainer h1 {
         font-size: 2.4rem;
         text-align: center;
@@ -139,7 +205,6 @@
 
     .boxes {
         width: 100%;
-        padding: 3%;
     }
 
     .boxes h3 {
@@ -162,7 +227,8 @@
     .imageContainer {
         background-position: right;
     }
-    .imageContainer h2{
+
+    .imageContainer h2 {
         width: 100%;
         margin-top: 630px;
         font-size: 2.7rem;
@@ -175,9 +241,20 @@
         text-align: center;
     }
 
+    .recommendationContainer {
+        flex-direction: column;
+    }
+
+    .vectorImage img {
+        width: 100%;
+    }
+
+    .recommendation-details {
+        width: 100%;
+    }
+
     .boxes {
         width: 100%;
-        padding: 3%;
     }
 
     .boxes h3 {
@@ -195,7 +272,8 @@
     .imageContainer {
         background-position: right;
     }
-    .imageContainer h2{
+
+    .imageContainer h2 {
         width: 100%;
         margin-top: 630px;
         font-size: 3rem;
@@ -208,9 +286,20 @@
         text-align: center;
     }
 
+    .recommendationContainer {
+        flex-direction: column;
+    }
+
+    .vectorImage img {
+        width: 100%;
+    }
+
+    .recommendation-details {
+        width: 100%;
+    }
+
     .boxes {
-        width: 45%;
-        padding: 3%;
+        width: 100%;
     }
 
     .boxes h3 {
@@ -221,9 +310,9 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-    .imageContainer h2{
+    .imageContainer h2 {
         margin-top: 400px;
-       font-size: 2.4rem;
+        font-size: 2.4rem;
     }
 
     .recommendationContainer h1 {
@@ -231,8 +320,7 @@
     }
 
     .boxes {
-        width: 45%;
-        padding: 3%;
+        width: 100%;
     }
 
     .boxes h3 {
@@ -241,7 +329,3 @@
     }
 
 }
-
-
-
-

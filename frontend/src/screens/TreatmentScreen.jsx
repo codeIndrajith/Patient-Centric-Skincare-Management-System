@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Treatment.css';
 import { useSelector } from 'react-redux';
+import { IoIosArrowDropright } from "react-icons/io";
 import { useNavigate, useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
 import {
   useGetDataQuery,
   useGetQuestionQuery,
 } from '../slices/questionnairesApiSlice';
+import treatment from '../images/treatment.gif';
 
 const TreatmentScreen = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -42,10 +44,6 @@ const TreatmentScreen = () => {
     return <p>Failed to fetch competition data. Please try again later.</p>;
   }
 
-  console.log(question);
-  console.log(treatments);
-  console.log(disease);
-
   // handle to dermatologist function
   const handleDermatologist = (id) => {
     navigate(`/diseases/${id}`);
@@ -56,16 +54,33 @@ const TreatmentScreen = () => {
         <h2>Our Model Help You Find Your Treatment. Check it out</h2>
       </div>
       <div className="recommendationContainer">
-        <h1>Recommend Treatments</h1>
+        <div className='vectorImage'>
+          <img src={treatment} alt="treatment-gif" />
+        </div>
+        <div className='recommendation-details'>
         <div className="recommendBox">
-          {disease.map((item) => (
-            <div className="boxes" key={item._id}>
-              <h3>{item.name}</h3>
-              <strong onClick={() => handleDermatologist(item._id)}>
-                See More
-              </strong>
-            </div>
-          ))}
+  {disease.map((item) => (
+    <div className="boxes" key={item._id}>
+      
+      {/* Disease Name */}
+      <strong className='titleTreatment'>{item.name}</strong>
+
+      {/* Short Description */}
+      <p className="description">
+        {item.description}
+      </p>
+
+      {/* Action Buttons */}
+      <div className="actionButtons">
+        <button onClick={() => handleDermatologist(item._id)}>
+          See More <IoIosArrowDropright />
+        </button>
+        <span>⭐⭐⭐⭐⭐</span> 
+      </div>
+    </div>
+  ))}
+</div>
+
         </div>
       </div>
     </div>

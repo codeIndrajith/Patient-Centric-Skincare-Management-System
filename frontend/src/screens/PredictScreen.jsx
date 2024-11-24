@@ -13,8 +13,30 @@ const PredictScreen = () => {
     navigate(`/treatments/${questionInfo._id}`);
   };
   console.log(questionInfo.predictResult.accuracy);
+  function getDiagnosisStatus(accuracy) {
+    if (accuracy >= 75) {
+      return "Highly Reliable Diagnosis";
+    } else if (accuracy >= 50) {
+      return "Moderately Reliable Diagnosis";
+    } else {
+      return "Diagnosis May Require Further Analysis";
+    }
+  }
+
+  function getStatusClass(accuracy) {
+    if (accuracy >= 0.8) {
+      return "reliable";
+    } else if (accuracy >= 0.5) {
+      return "moderate";
+    } else {
+      return "uncertain";
+    }
+  }
+  
+  
   return (
     <div className="predictContainer">
+      <h1 className='skin-condition'>Skin Condition</h1>
       <div className="bodySection">
         <div className="imageSkin">
           {questionInfo.skinImage ? (
@@ -42,14 +64,16 @@ const PredictScreen = () => {
             </div>
           </div>
         ) : (
-          <>
+          <div className='deSection'>
             <div className="information">
               <div className="details issue">
                 <div className="new">
-                  <h5>Disease</h5>
                   <p>{questionInfo.predictResult.disease}</p>
                 </div>
-                <p>accuracy: {questionInfo.predictResult.accuracy}</p>
+                <p className={`diagnosis-status ${getStatusClass(questionInfo.predictResult.accuracy)}`}>
+  Diagnosis Status - {getDiagnosisStatus(questionInfo.predictResult.accuracy)}
+</p>
+
               </div>
               <div className="details">
                 <h5>Age</h5>
@@ -71,13 +95,14 @@ const PredictScreen = () => {
                 <h5>History Of Heart Attacks</h5>
                 <p>{questionInfo.hasHistoryOfHeartAttacks}</p>
               </div>
-            </div>
-            <div className="predictButton">
+              <div className="predictButton">
               <button onClick={handlePrediction} type="button">
                 Check Treatment
               </button>
             </div>
-          </>
+            </div>
+            
+          </div>
         )}
       </div>
     </div>
