@@ -8,6 +8,7 @@ import {
   FormControl,
   Button,
   Row,
+  Col,
   Image,
 } from 'react-bootstrap';
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
@@ -51,18 +52,22 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect className="px-3">
         <Container fluid style={{ padding: '0 5%' }}>
+         
+          <Col className="d-flex align-items-center justify-content-between">
           <LinkContainer to="/">
             <Navbar.Brand>
               <Image
                 src={derma}
                 alt="DermaDivine"
-                style={{ maxHeight: '100%', maxWidth: '40%' }}
+                className="w-50 w-md-25"
               />
             </Navbar.Brand>
           </LinkContainer>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+          </Col>
+    
 
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
@@ -81,7 +86,7 @@ const Header = () => {
                   </NavDropdown>
                 </>
               ) : (
-                <>
+                <Col className="d-flex gap-3 flex-col justify-content-end align-items-center">
                   <LinkContainer to="/login">
                     <Nav.Link>
                       <FaSignInAlt />{' '}
@@ -90,7 +95,7 @@ const Header = () => {
                       </span>
                     </Nav.Link>
                   </LinkContainer>
-                  <LinkContainer to="/register">
+                  <LinkContainer to="/register" className="ms-3">
                     <Nav.Link>
                       <FaSignOutAlt />{' '}
                       <span style={{ color: 'white', fontWeight: '700' }}>
@@ -98,7 +103,7 @@ const Header = () => {
                       </span>
                     </Nav.Link>
                   </LinkContainer>
-                </>
+                </Col>
               )}
             </Nav>
           </Navbar.Collapse>
