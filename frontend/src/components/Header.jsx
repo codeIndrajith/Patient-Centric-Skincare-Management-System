@@ -52,7 +52,7 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect className="px-3">
+      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect className="px-4">
         <Container fluid style={{ padding: '0 5%' }}>
          
           <Col className="d-flex align-items-center justify-content-between">

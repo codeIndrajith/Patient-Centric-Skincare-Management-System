@@ -20,6 +20,8 @@ import v7 from '../videos/670a737c85b00b8432bcf686.mp4';
 import v8 from '../videos/670a736a85b00b8432bcf685.mp4';
 import v9 from '../videos/670a734485b00b8432bcf684.mp4';
 import v10 from '../videos/670a72e785b00b8432bcf683.mp4';
+import v11 from '../videos/67148bf0b976588b469b5290.mp4';
+import v12 from '../videos/67148ce2b976588b469b5291.mp4'
 import toast from 'react-hot-toast';
 
 const videos = [
@@ -33,6 +35,8 @@ const videos = [
   { id: '670a736a85b00b8432bcf685', url: v8 },
   { id: '670a734485b00b8432bcf684', url: v9 },
   { id: '670a72e785b00b8432bcf683', url: v10 },
+  { id: '67148bf0b976588b469b5290', url: v11 },
+  { id: '67148ce2b976588b469b5291', url: v12 },
 ];
 
 const DiseasesScreen = () => {
