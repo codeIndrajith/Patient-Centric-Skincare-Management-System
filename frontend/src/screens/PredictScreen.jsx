@@ -24,9 +24,9 @@ const PredictScreen = () => {
   }
 
   function getStatusClass(accuracy) {
-    if (accuracy >= 0.8) {
+    if (accuracy >= 75) {
       return "reliable";
-    } else if (accuracy >= 0.5) {
+    } else if (accuracy >= 65) {
       return "moderate";
     } else {
       return "uncertain";
