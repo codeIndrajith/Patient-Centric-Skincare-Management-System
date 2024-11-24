@@ -269,8 +269,8 @@ const DermatologistScreen = () => {
 
   {/* Review Section */}
   <div className="review-section doc-review">
-      <h4 className="reviewHeading">Why did you leave this rating?</h4>
-      <p className="reviewText">Amazing, above expectations?</p>
+      <h4 className="reviewHeading">Feedback</h4>
+      <p className="reviewText">What about our service?</p>
       <textarea 
       value={feedbackDoctor}
       onChange={(e) => setFeedbackDoctor(e.target.value)}

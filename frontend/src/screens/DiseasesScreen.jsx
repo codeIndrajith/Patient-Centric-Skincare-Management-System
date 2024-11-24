@@ -148,8 +148,8 @@ const DiseasesScreen = () => {
 
       {/* Review Section */}
       <div className="review-section">
-      <h4 className="reviewHeading">Why did you leave this rating?</h4>
-      <p className="reviewText">Amazing, above expectations?</p>
+      <h4 className="reviewHeading">Feedback</h4>
+      <p className="reviewText">What about our service?</p>
       <textarea 
       value={feedbackTreatment}
       onChange={(e) => setFeedbackTreatment(e.target.value)}

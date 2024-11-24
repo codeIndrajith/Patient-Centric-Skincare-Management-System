@@ -1,0 +1,183 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full Page Layout */
+.register-container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+/* Left Side - Illustration */
+.illustration-container {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Right Side - Registration Form */
+.form-container {
+  flex: 1;
+  padding: 10px 10px;
+  margin-top: 25px;
+  max-width: 490px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Form Header */
+.form-header {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Form Fields */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-control {
+  padding: 5px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.form-control:focus {
+  border-color: #030c14;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* Submit Button */
+.btn-submit {
+  padding: 10px;
+  background-color: #000000;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn-submit:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+
+/* Loader */
+.loader {
+  text-align: center;
+  font-size: 1rem;
+  color: #000000;
+  margin-top: 20px;
+}
+
+/* Login Link */
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-link p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.login-link a {
+  color: #33373a;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .illustration-container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .form-container {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .form-header {
+    font-size: 2rem;
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+  }
+
+  .btn-submit {
+    font-size: 1rem;
+  }
+
+  .login-link p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-header {
+    font-size: 1.8rem;
+  }
+
+  .form-container {
+    padding: 15px;
+  }
+
+  .form-control {
+    font-size: 0.85rem;
+  }
+
+  .btn-submit {
+    font-size: 0.95rem;
+  }
+}

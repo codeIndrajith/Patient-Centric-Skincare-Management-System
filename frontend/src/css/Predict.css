@@ -78,6 +78,7 @@ h4 strong {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 30px;
 }
 
 .deSection {
@@ -129,6 +130,13 @@ h4 strong {
         margin-left: auto;
     }
 
+    .imageSkin {
+        padding: 10px;
+    }
+
+    .skin-condition {
+        font-size: 1.8rem;
+    }
     .information {
         padding: 0;
     }
@@ -181,7 +189,6 @@ h4 strong {
     .skinImage {
         width: 80%;
     }
-
     .information {
         padding: 0 15%;
     }
@@ -202,10 +209,28 @@ h4 strong {
     .skinImage {
         width: 80%;
     }
+    .bodySection {
+        justify-content: center;
+    }
 
+}
+
+
+@media screen(max-width: 1200px) {
+    .skinImage {
+        width: 80%;
+    }
     .bodySection {
         flex-direction: column;
-        justify-content: center;
+        justify-content: center; 
+    }
+
+    .imageSkin {
+        padding: 10px;
+    }
+    
+    .skin-condition {
+        font-size: 1.7rem;
     }
 
 }
